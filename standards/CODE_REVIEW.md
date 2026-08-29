@@ -31,4 +31,3 @@ Code review is a quality gate and a teaching tool. Optimize for safety and learn
   - added tests,
   - clearer naming/structure,
   - or a short ADR/design note if the decision is durable.
-

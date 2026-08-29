@@ -23,4 +23,3 @@ What should be true when this is done?
 ## Proposed approach (optional)
 
 - Notes:
-

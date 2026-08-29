@@ -16,16 +16,23 @@ It is written to be readable by humans *and* coding agents (Cursor, Claude, Gemi
 
 ## Repository map
 
-- `AGENTS.md`: entrypoint for any coding agent
+- `AGENTS.md`: entrypoint for any coding agent (aligned with the AGENTS.md open standard)
 - `standards/`: lifecycle standards and checklists
 - `templates/`: PR/issue/design/ADR templates you can reuse in product repos
 - `.editorconfig`: formatting defaults across languages
+- `CHANGELOG.md`: what changed between standards releases
+
+### Security standards
+
+- `standards/SECURITY.md`: application security, aligned with OWASP Top 10:2025
+- `standards/SUPPLY_CHAIN.md`: dependency intake, build integrity, provenance, SBOM, SLSA
+- `standards/AI_AGENT_SECURITY.md`: LLM/agentic feature security and working safely with coding agents
 
 ### Web app standards (responsive, mixed-stack)
 
 - `standards/FRONTEND_WEB.md`: frontend architecture + responsive UI standards
-- `standards/ACCESSIBILITY_WEB.md`: accessibility requirements (WCAG-oriented)
-- `standards/PERFORMANCE_WEB.md`: web performance + budgets
+- `standards/ACCESSIBILITY_WEB.md`: accessibility requirements (WCAG 2.2 AA)
+- `standards/PERFORMANCE_WEB.md`: web performance + Core Web Vitals budgets
 - `standards/API_CONTRACTS.md`: API design, compatibility, and error models
 - `standards/PROJECT_CONVENTIONS_WEB.md`: recommended repo structures + required scripts/CI gates
 
@@ -36,3 +43,6 @@ It is written to be readable by humans *and* coding agents (Cursor, Claude, Gemi
 - **Tests are part of the product**: they protect velocity.
 - **Operational excellence**: observability, safe rollouts, and incident readiness.
 
+## License
+
+MIT — see `LICENSE`.

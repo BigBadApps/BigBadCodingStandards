@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint Markdown
+        run: npx --yes markdownlint-cli2 "**/*.md" "#node_modules"
+
+      - name: Check internal doc links
+        run: bash tools/check-links.sh
+
+      - name: Lint shell scripts
+        run: shellcheck --severity=warning tools/*.sh

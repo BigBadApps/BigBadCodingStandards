@@ -54,4 +54,3 @@ Add these files to every product repo:
 - `AGENTS.md` (project-local, short, points to the standards location)
 - `docs/coding-standards/` (submodule or vendored)
 - `docs/adrs/` (decision records)
-

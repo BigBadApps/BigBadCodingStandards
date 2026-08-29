@@ -49,9 +49,15 @@ New critical paths require:
 - alerts based on SLO-impacting signals
 - a runbook link
 
+## Secure releases
+
+- CI runs tests, lint, typecheck, and dependency vulnerability scanning on every PR.
+- Release artifacts are built by CI (not a laptop), signed, and carry a **SLSA provenance
+  attestation** and an **SBOM** (SPDX or CycloneDX). See `standards/SUPPLY_CHAIN.md`.
+- Build and publish identities are separate; publish credentials are short-lived and least-scope.
+
 ## Incident response expectations
 
 - Mitigate first (stop the bleeding).
 - Communicate clearly.
 - Follow up with a blameless postmortem and tracked action items.
-

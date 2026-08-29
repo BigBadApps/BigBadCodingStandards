@@ -8,13 +8,28 @@ Performance is a feature: it improves conversion, retention, and perceived quali
 - Keep interactions responsive (avoid long main-thread tasks).
 - Reduce bundle size and runtime work.
 
+## Core Web Vitals targets (must)
+
+Measured on **p75 of real users** (field data), mobile and desktop:
+
+- **LCP** (Largest Contentful Paint): **≤ 2.5 s**
+- **INP** (Interaction to Next Paint): **≤ 200 ms**  — INP replaced FID as a Core Web Vital in March 2024
+- **CLS** (Cumulative Layout Shift): **≤ 0.1**
+
+Supporting targets:
+
+- **TTFB**: ≤ 800 ms for key routes.
+- Treat "needs improvement" as a regression to fix, not an acceptable steady state.
+
 ## Budgets (starting point)
 
-Treat these as defaults; adjust per product.
+Treat these as defaults; adjust per product, but set explicit numbers per repo.
 
-- **Bundle**: avoid shipping unnecessary code; code-split by route.
-- **Images**: serve appropriately sized, compressed images; prefer modern formats.
-- **JS execution**: avoid large synchronous work on page load.
+- **JS on core routes**: aim for ≤ ~150–200 KB compressed initial payload; code-split by route.
+- **Bundle**: no unused large libraries; audit with a bundle analyzer in CI.
+- **Images**: serve appropriately sized, compressed images; prefer AVIF/WebP; set explicit
+  `width`/`height` or `aspect-ratio` to protect CLS.
+- **JS execution**: avoid long tasks (> 50 ms) on load and on interaction; break up work.
 
 ## Practices (must)
 
@@ -31,7 +46,7 @@ Treat these as defaults; adjust per product.
 
 ## Measurement
 
-- Collect and monitor Core Web Vitals where feasible:
-  - LCP, CLS, INP
-- Add performance regression checks for critical pages in CI when mature enough.
-
+- Collect **field** Core Web Vitals (RUM) for LCP, INP, CLS — this is the source of truth.
+- Use **lab** tools (Lighthouse / trace-based) in CI for regression detection on critical
+  pages; gate merges on budget breaches once the setup is stable.
+- Alert when p75 of any Core Web Vital crosses its target.
