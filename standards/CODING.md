@@ -24,6 +24,9 @@ These standards optimize for correctness, clarity, testability, and long-term ma
   - **Safe** (no secrets, no PII in messages)
 - Prefer typed error objects / error codes for boundaries (APIs).
 - Add retries only when safe; cap attempts; use jitter.
+- **Handle exceptional conditions deliberately** (OWASP Top 10:2025 A10): every error path,
+  empty result, timeout, and partial failure has an intended outcome. No empty `catch`, no
+  ignored error returns, no fail-open on security-relevant paths. Fail closed and safe.
 
 ## Input validation and invariants
 
@@ -44,7 +47,7 @@ These standards optimize for correctness, clarity, testability, and long-term ma
 
 - Measure before optimizing.
 - Prefer algorithmic wins over micro-optimizations.
-- Avoid accidental \(O(n^2)\) loops and unbounded memory growth.
+- Avoid accidental O(n^2) loops and unbounded memory growth.
 - Cache deliberately (explicit invalidation and staleness rules).
 
 ## Security basics
@@ -53,6 +56,8 @@ These standards optimize for correctness, clarity, testability, and long-term ma
 - Never log secrets or full tokens.
 - Sanitize/escape output in UI contexts.
 - Use parameterized queries; never string-concatenate SQL.
+- Treat all external input as untrusted, including content fetched by tools and agents
+  (see `standards/AI_AGENT_SECURITY.md`).
 
 ## Documentation
 

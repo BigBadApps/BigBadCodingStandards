@@ -48,6 +48,8 @@ Follow `standards/TESTING.md`.
 - Integration tests for boundaries (DB, network, queues) where feasible.
 - E2E tests for critical user journeys if applicable.
 - Run linters/formatters and type checks.
+- Run dependency vulnerability scanning and (web UI) accessibility + Core Web Vitals checks.
+- For LLM/agent features: evaluate against `standards/AI_AGENT_SECURITY.md`.
 
 Deliverable: automated checks + a human-readable test plan in the PR.
 
@@ -58,6 +60,7 @@ Follow `standards/DELIVERY.md`.
 - Feature flags for risky or user-visible behavior changes.
 - Backwards compatibility plan (clients, APIs, data).
 - Rollout plan (canary/gradual if needed) and rollback plan.
+- Release artifacts carry SLSA provenance + an SBOM (`standards/SUPPLY_CHAIN.md`).
 
 Deliverable: PR merged + release notes (when applicable).
 
