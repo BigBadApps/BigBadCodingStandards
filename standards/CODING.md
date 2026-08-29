@@ -59,6 +59,14 @@ These standards optimize for correctness, clarity, testability, and long-term ma
 - Treat all external input as untrusted, including content fetched by tools and agents
   (see `standards/AI_AGENT_SECURITY.md`).
 
+## Fixing bugs
+
+- Establish the **root cause** before writing the fix. Capture the failing inputs, logs,
+  and relevant state first.
+- No symptom-patching: if you cannot explain *why* the bug happens, you are not ready to
+  fix it.
+- Lock the fix in with a test that fails before and passes after (`standards/TESTING.md`).
+
 ## Documentation
 
 - Document **intent and constraints**, not obvious mechanics.

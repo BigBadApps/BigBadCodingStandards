@@ -81,7 +81,13 @@ In product repositories, the preferred layout is:
 
 ## When uncertain
 
-- Prefer the safest interpretation that preserves existing behavior.
-- Add instrumentation or tests to reduce ambiguity.
-- If requirements are incomplete, proceed with a reasonable default and clearly document it.
+Decide by the **cost of guessing wrong**:
+
+- **Ambiguous acceptance criteria + high cost of a wrong guess** (irreversible change, data
+  loss, security/permission model, public API shape, user-visible behavior, spend): **stop
+  and ask a specific clarifying question.** Do not improvise the missing requirement.
+- **Low cost of a wrong guess** (easily reversible, internal, cheap to change): proceed with
+  a reasonable default and **document the assumption** in the PR.
+- Either way: prefer the safest interpretation that preserves existing behavior, and add
+  instrumentation or tests to reduce ambiguity.
 

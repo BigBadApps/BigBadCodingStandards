@@ -10,7 +10,9 @@ Testing protects velocity. The goal is fast feedback and high confidence.
 
 ## What must be tested
 
-- Bug fixes: reproduce the bug with a test, then fix.
+- Bug fixes: **identify the root cause first**, then reproduce it with a failing test, then
+  fix. Capture the failing state (inputs, logs, relevant state/config) before changing
+  code — do not patch a symptom you cannot explain.
 - Business logic: invariants, edge cases, error paths.
 - Boundary behavior: validation, auth/permissions, error mapping, retries/timeouts.
 - Data migrations: forward + backward compatibility where relevant.

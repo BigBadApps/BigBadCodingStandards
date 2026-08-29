@@ -39,6 +39,10 @@ These standards apply to web apps that must work well on **phone, tablet, and de
 - Prefer a consistent system: design tokens, spacing scale, typography scale.
 - Avoid scattered “magic numbers”.
 - Keep theming and dark mode in mind (even if not shipped day one).
+- **Conform to the project's design system.** Generated UI must use the project's tokens,
+  components, and patterns — not default model styling (arbitrary palettes, stock
+  glassmorphism, placeholder copy). If the project has a `DESIGN.md` or component library,
+  it is the source of truth.
 
 ## Forms and validation
 

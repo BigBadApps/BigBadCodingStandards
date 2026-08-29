@@ -6,6 +6,28 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Added — agent engineering (second pass)
+
+- `standards/ARCHITECTURE.md` — **Deterministic offloading** (keep exact/compliance/DB/math
+  logic in reviewed code the model calls, not in the reasoning loop) and **Agent and
+  protocol interoperability** (prefer MCP for tools/data, A2A for multi-agent handoffs;
+  AAIF governance; keep app logic provider-independent).
+- `standards/TOOLS_AND_AGENTS.md` — **Context engineering** (separate static from dynamic
+  context, just-in-time retrieval over bulk repo loading, keep `AGENTS.md` lean) and an
+  MCP/A2A tool-usage rule.
+- `standards/AI_AGENT_SECURITY.md` — **Sandboxed execution** (disposable container/VM, no
+  standing prod access, unbypassable human gate for destructive ops), **Agent architecture**
+  (orchestrator-worker / scoped sub-agents as a privilege boundary; right-size the model),
+  and **AI-BOM** (models/data/prompts/tools inventory via CycloneDX ML-BOM or SPDX 3.0 AI
+  Profile; EU AI Act Annex IV). Checklist updated.
+- `standards/CODING.md` / `standards/TESTING.md` / `standards/PR_CHECKLIST.md` — **root
+  cause before bug fix**: capture failing state, no symptom-patching.
+- `standards/FRONTEND_WEB.md` — generated UI must conform to the project design system, not
+  default model styling.
+- `AGENTS.md` — sharpened "When uncertain": ask when acceptance criteria are ambiguous
+  **and** a wrong guess is costly; otherwise default + document.
+- `standards/SUPPLY_CHAIN.md` — AI-BOM cross-reference.
+
 ### Added
 
 - `standards/SUPPLY_CHAIN.md` — software supply chain standard: dependency intake and

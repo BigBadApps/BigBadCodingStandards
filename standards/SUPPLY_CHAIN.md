@@ -72,6 +72,11 @@ and **contain blast radius**.
 Target: **SLSA Build Level 2+** for services and published libraries. Level 3 for
 high-value or widely consumed artifacts.
 
+For products that ship an LLM or agent in the loop, also maintain an **AI-BOM** (models,
+datasets and lineage, versioned prompts, tools/MCP servers) using CycloneDX ML-BOM or SPDX
+3.0 AI Profile. See `standards/AI_AGENT_SECURITY.md`. This is a regulatory/procurement
+requirement in some markets (EU AI Act Annex IV).
+
 ## Secrets and token hygiene (must)
 
 - No secrets in the repo, in build logs, or in error messages (see `standards/SECURITY.md`).

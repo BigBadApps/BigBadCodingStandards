@@ -54,6 +54,34 @@ present, a human must be in the loop for the externally-visible action.
 - Bound resource use: cap iterations, tool calls, tokens, and wall-clock time to prevent
   unbounded consumption (cost and denial-of-service).
 
+## Sandboxed execution (must)
+
+Agents that run code, shell commands, database operations, or migrations do so in an
+**isolated, disposable environment** — never directly on a developer machine or a
+production host.
+
+- Use a container or ephemeral VM with:
+  - no standing access to production credentials or data,
+  - egress restricted to an allow-list,
+  - a filesystem scoped to the workspace,
+  - resource and time limits.
+- The environment is **disposable**: destroy and recreate it per task; do not carry state
+  between untrusted runs.
+- Actions that leave the sandbox (push, deploy, publish, send, pay, delete) go through the
+  human-approval / gated-pipeline path above, not directly from the agent.
+- Destructive operations require a hardcoded human-in-the-loop validation step that cannot
+  be bypassed by agent instructions.
+
+## Agent architecture (must)
+
+- Prefer **orchestrator-worker / hierarchical decomposition** over one monolithic agent
+  loop: a coordinator delegates narrow sub-tasks to smaller, tightly-scoped agents.
+- Each sub-agent gets **only the tools and context its sub-task needs** — decomposition is
+  a privilege-containment boundary, not just a performance trick.
+- Match model size/cost to the sub-task; do not run every step on the largest model.
+- Keep fragile or exact logic out of the reasoning loop entirely — see Deterministic
+  offloading in `standards/ARCHITECTURE.md`.
+
 ## Memory and context integrity (must)
 
 - Do not persist untrusted content into long-lived agent memory / context stores without
@@ -69,6 +97,21 @@ present, a human must be in the loop for the externally-visible action.
   least privilege.
 - Only connect MCP servers / tools from sources you trust. A malicious tool server sees
   everything the agent sends it.
+
+## AI Bill of Materials (must for shipped AI features)
+
+For any product feature that ships an LLM or agent in the loop, maintain an **AI-BOM**
+alongside the normal SBOM (`standards/SUPPLY_CHAIN.md`):
+
+- Track: models and versions, datasets / knowledge sources and their lineage, system
+  prompts and prompt templates (versioned), tools / MCP servers, and the guardrail config.
+- Use a machine-readable format: **CycloneDX ML-BOM** (CI/CD automation) or **SPDX 3.0 AI
+  Profile** (regulatory weight).
+- Refresh on initial release and on every material change (model swap, prompt change, new
+  data source).
+- This is increasingly a **regulatory and procurement requirement** (e.g. EU AI Act Annex
+  IV technical documentation for high-risk systems). Treat it as compliance, not optional
+  hygiene, where that exposure exists.
 
 ## Working with coding agents on our repos (must)
 
@@ -97,6 +140,10 @@ present, a human must be in the loop for the externally-visible action.
 - [ ] Irreversible / outward actions require human approval.
 - [ ] External content treated as untrusted; model output validated before privileged use.
 - [ ] Resource/iteration/cost limits enforced.
+- [ ] Code/shell/DB execution runs in a disposable sandbox with no standing prod access.
+- [ ] Destructive actions gated by an unbypassable human-in-the-loop step.
+- [ ] Scoped sub-agents over a monolithic loop; exact logic offloaded to deterministic code.
 - [ ] Memory and retrieval cannot override instructions; context isolated per user/task.
 - [ ] MCP servers / tools / skills come from trusted, pinned sources.
+- [ ] AI-BOM maintained for shipped AI features (models, data, prompts, tools).
 - [ ] Prompts and tool calls are logged; a kill switch exists.

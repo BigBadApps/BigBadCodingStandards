@@ -18,6 +18,26 @@ These standards exist to maximize output quality while minimizing wasted agent t
   - it clearly reduces total complexity
   - it is widely supported and maintained
   - it has a clear owner and upgrade path
+- Prefer **MCP** for connecting agents to tools/data over bespoke per-model API wrappers;
+  use **A2A** for multi-agent handoffs. Only connect MCP servers / tools from trusted,
+  pinned sources (`standards/AI_AGENT_SECURITY.md`).
+
+## Context engineering
+
+Context window space and prompt-cache efficiency are real constraints. Manage them
+deliberately.
+
+- **Separate static from dynamic context**:
+  - *Static* (coding rules, architecture, API endpoints, conventions) — stable, put it in
+    checked-in files (`AGENTS.md`, `standards/`, `docs/`) so it is cache-friendly and
+    identical across runs.
+  - *Dynamic* (current task, chat state, live file contents, tool output) — changes every
+    run; keep it separate and minimal.
+- **Just-in-time retrieval over bulk loading**: do not dump the whole repo into context.
+  Pull the specific files/sections a step needs, when it needs them.
+- **Keep `AGENTS.md` lean**: it is loaded every run. High-signal constraints only; link out
+  to `standards/` for detail rather than inlining it.
+- Avoid restating the same large context every turn — reference it instead.
 
 ## Source-of-truth hierarchy
 

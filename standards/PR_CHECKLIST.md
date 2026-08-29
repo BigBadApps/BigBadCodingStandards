@@ -13,6 +13,7 @@ Use this on every PR (human or agent-authored).
 - [ ] Input validation exists at boundaries.
 - [ ] Errors are actionable and safe (no secrets/PII).
 - [ ] Edge cases and failure modes considered; no empty catch / fail-open (OWASP A10).
+- [ ] Bug fixes: root cause identified and captured, not just symptom patched.
 
 ## Tests
 
@@ -38,7 +39,9 @@ Use this on every PR (human or agent-authored).
 
 - [ ] Lethal trifecta assessed; least-privilege tools; human approval for irreversible actions.
 - [ ] External content treated as untrusted; model output validated before privileged use.
-- [ ] Resource/cost limits and logging in place (`standards/AI_AGENT_SECURITY.md`).
+- [ ] Code/shell/DB execution sandboxed; exact logic offloaded to deterministic code.
+- [ ] Resource/cost limits and logging in place; AI-BOM updated if shipping AI features.
+- [ ] See `standards/AI_AGENT_SECURITY.md`.
 
 ## Performance and reliability
 
