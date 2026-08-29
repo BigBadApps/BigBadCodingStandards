@@ -42,4 +42,3 @@ Testing protects velocity. The goal is fast feedback and high confidence.
 - Keep fixtures small and intention-revealing.
 - Prefer factories/builders over giant JSON blobs.
 - Never use real customer data in tests.
-

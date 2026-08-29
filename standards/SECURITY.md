@@ -90,4 +90,3 @@ Treat unknown data as **Sensitive**.
 - CI must run tests, linters, and dependency/vulnerability scanning on every PR.
 - Use code review for all changes; require review before merge to `main`.
 - Produce signed releases with SLSA provenance and an SBOM (`standards/SUPPLY_CHAIN.md`).
-

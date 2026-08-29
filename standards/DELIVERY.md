@@ -61,4 +61,3 @@ New critical paths require:
 - Mitigate first (stop the bleeding).
 - Communicate clearly.
 - Follow up with a blameless postmortem and tracked action items.
-

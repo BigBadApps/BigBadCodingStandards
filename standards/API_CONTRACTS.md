@@ -58,4 +58,3 @@ Classify errors:
 
 - Propagate correlation IDs from frontend to backend and back.
 - Log structured request metadata (method, route, status, latency) without sensitive payloads.
-

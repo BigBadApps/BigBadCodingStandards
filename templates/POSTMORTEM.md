@@ -48,4 +48,3 @@ Each item must have **an owner** and **a due date**.
 - Prevent recurrence:
 - Reduce time to detect:
 - Reduce time to mitigate:
-

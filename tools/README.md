@@ -27,4 +27,3 @@ tools/update-standards-submodules.sh /abs/path/to/REPOS.txt
 ```
 
 Where `REPOS.txt` contains one absolute repo path per line.
-

@@ -67,4 +67,3 @@ Follow `standards/ACCESSIBILITY_WEB.md`.
   - build/version
   - correlation/request ID (if available)
 - Track key UX metrics (Core Web Vitals) and critical funnel events.
-

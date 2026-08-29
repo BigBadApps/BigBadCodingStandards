@@ -70,4 +70,3 @@ All agents should:
 - Use the same definition of “done” (acceptance criteria + tests).
 - Write PR summaries in the `templates/PULL_REQUEST_TEMPLATE.md` format.
 - Record durable architecture decisions in ADRs (`templates/ADR.md`).
-

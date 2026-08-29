@@ -49,4 +49,3 @@ See `standards/SUPPLY_CHAIN.md` for the full standard. Minimum here:
 - Prefer verified publishers and official registries; watch for typosquats and dependency
   confusion.
 - Keep build steps deterministic and reproducible.
-

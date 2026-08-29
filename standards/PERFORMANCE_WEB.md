@@ -50,4 +50,3 @@ Treat these as defaults; adjust per product, but set explicit numbers per repo.
 - Use **lab** tools (Lighthouse / trace-based) in CI for regression detection on critical
   pages; gate merges on budget breaches once the setup is stable.
 - Alert when p75 of any Core Web Vital crosses its target.
-

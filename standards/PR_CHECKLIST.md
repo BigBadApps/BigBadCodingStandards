@@ -55,4 +55,3 @@ Use this on every PR (human or agent-authored).
 - [ ] Rollout plan exists for risky changes.
 - [ ] Rollback is feasible and documented if needed.
 - [ ] Observability added for new critical paths.
-

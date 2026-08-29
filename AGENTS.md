@@ -90,4 +90,3 @@ Decide by the **cost of guessing wrong**:
   a reasonable default and **document the assumption** in the PR.
 - Either way: prefer the safest interpretation that preserves existing behavior, and add
   instrumentation or tests to reduce ambiguity.
-

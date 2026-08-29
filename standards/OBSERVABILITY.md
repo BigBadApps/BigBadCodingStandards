@@ -48,4 +48,3 @@ At minimum for each critical API/route/job:
 - Use stable error codes for boundary errors.
 - Capture enough context to reproduce without exposing sensitive data.
 - Make feature flags and config visible in diagnostics where safe.
-

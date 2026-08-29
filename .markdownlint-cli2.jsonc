@@ -1,0 +1,15 @@
+{
+  // Standards docs are prose-heavy; keep the linter focused on real problems.
+  "config": {
+    "default": true,
+    "MD013": false,   // line length — prose wraps naturally
+    "MD024": { "siblings_only": true }, // repeated headings OK if not siblings (CHANGELOG)
+    "MD033": false,   // inline HTML — occasionally needed
+    "MD041": false,   // first line need not be a top-level heading (templates)
+    "MD029": false    // ordered-list numbering style varies across docs
+  },
+  "ignores": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -33,4 +33,3 @@
 - `standards/DATA_MIGRATIONS.md`
 - `standards/DEPENDENCIES.md`
 - `standards/CODE_REVIEW.md`
-

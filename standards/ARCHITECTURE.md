@@ -96,4 +96,3 @@ Use `templates/ADR.md` when:
 - A decision will persist longer than a PR
 - It affects multiple teams/systems
 - It trades off operational complexity vs. delivery speed
-

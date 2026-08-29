@@ -24,4 +24,3 @@ Before making changes, agents must read:
 If `docs/coding-standards/` is a submodule, ensure it is up to date before starting work:
 
 - `git submodule update --init --recursive`
-

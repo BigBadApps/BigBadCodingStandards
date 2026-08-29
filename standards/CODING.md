@@ -71,4 +71,3 @@ These standards optimize for correctness, clarity, testability, and long-term ma
 
 - Document **intent and constraints**, not obvious mechanics.
 - Add docs at boundaries: APIs, modules, operational runbooks.
-

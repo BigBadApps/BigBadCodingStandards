@@ -46,4 +46,3 @@ What does this system do?
 ## Safe-mode / degrade behavior
 
 What features can be disabled to reduce impact?
-

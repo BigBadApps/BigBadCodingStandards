@@ -78,4 +78,3 @@ Deliverable: updated docs/runbooks and on-call readiness.
 - If an incident/regression occurs: blameless postmortem with action items.
 
 Deliverable: measurable improvements to prevent recurrence.
-

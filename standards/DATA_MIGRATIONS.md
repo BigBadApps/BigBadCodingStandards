@@ -29,4 +29,3 @@ Data changes are production changes. Treat them as deployments.
 
 - Old clients may exist. Assume mixed versions during rollout.
 - Keep both read paths working during the overlap period.
-

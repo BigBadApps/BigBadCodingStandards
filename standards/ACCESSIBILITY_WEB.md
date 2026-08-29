@@ -63,4 +63,3 @@ Goal: ship UIs that are usable with keyboard, screen readers, and touch.
   - screen-reader sanity check for core pages
   - target size and drag-alternative check on touch
 - Verify reduced-motion and 200% zoom / 320px reflow on layout-heavy pages.
-

@@ -46,4 +46,3 @@ It is written to be readable by humans *and* coding agents (Cursor, Claude, Gemi
 ## License
 
 MIT — see `LICENSE`.
-

@@ -46,4 +46,3 @@ Use `tools/bump-standards-submodule.sh` with a repo list file (one repo path per
 - Submodules pin an exact commit. This is **intentional**: rollouts stay auditable and reversible.
 - Do not auto-update standards on every build; that creates surprise breakages.
 - Prefer periodic rollout cadence (e.g. weekly) or per-need updates.
-
