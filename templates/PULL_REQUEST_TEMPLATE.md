@@ -15,6 +15,7 @@
 
 ## Checklist
 
+- [ ] Design doc linked (non-trivial changes; `templates/DESIGN.md`).
 - [ ] Security: no secrets; authz enforced; errors don't leak internals (OWASP Top 10:2025).
 - [ ] Supply chain: deps vetted, lockfile committed, CI actions pinned (if deps/build changed).
 - [ ] AI/agent: least privilege, untrusted-input handling, human gate for irreversible actions (if applicable).
