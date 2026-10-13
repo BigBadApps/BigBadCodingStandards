@@ -23,6 +23,7 @@
 - `standards/TESTING.md`
 - `standards/DELIVERY.md`
 - `standards/PR_CHECKLIST.md`
+- `standards/GIT_CONVENTIONS.md`
 
 ## Security and operations
 

@@ -17,9 +17,11 @@ Use this on every PR (human or agent-authored).
 
 ## Tests
 
+- [ ] Failing test written before implementation for new behavior/bug fixes (TDD).
 - [ ] Tests added/updated for bug fixes and non-trivial logic.
 - [ ] Tests cover happy path and key error paths.
 - [ ] No flaky tests introduced.
+- [ ] Test names describe the expected behavior, not the implementation.
 
 ## Security
 

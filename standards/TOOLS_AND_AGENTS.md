@@ -4,11 +4,12 @@ These standards exist to maximize output quality while minimizing wasted agent t
 
 ## Default agent loop (universal)
 
-- **Restate goal** and define “done”.
-- **Inspect before changing**: read relevant files and current behavior.
-- **Propose the smallest safe change** that achieves the goal.
-- **Implement** with minimal diff and clear structure.
-- **Verify** with the fastest credible tests (then add deeper tests if risk warrants).
+- **Restate goal** and define “done” (acceptance criteria + passing tests).
+- **Inspect before changing**: read relevant files and current behavior. Locate existing tests for the area you're touching.
+- **Write the failing test first** (TDD Red step): express the desired behavior as a test before touching implementation.
+- **Implement** with minimal diff and clear structure (TDD Green step).
+- **Refactor** without breaking the test (TDD Refactor step).
+- **Verify** with the fastest credible tests (then add deeper tests if risk warrants). All tests must pass; lint and typecheck must pass.
 - **Summarize** what changed, why, and how to validate.
 
 ## Tool usage (general)
