@@ -74,3 +74,28 @@ Agent-generated commits must follow the same conventions as human-authored commi
 - Use the correct `type` prefix — do not default to `chore` for everything.
 - The subject line must describe the *change*, not the task ("fix: validate email on signup" not "implement task 3").
 - If an agent makes multiple distinct changes in one session, prefer multiple commits over one large commit.
+
+## AI attribution
+
+Disclose substantive AI assistance with a commit trailer:
+
+```text
+Assisted-by: <agent>:<model> [tool ...]
+```
+
+Example:
+
+```text
+fix(cart): prevent double-charge when network retries
+
+Assisted-by: Claude Code:claude-opus-5-5
+```
+
+- The human who ran the agent is the commit author and is accountable for the change.
+- Do **not** use `Co-Authored-By` for AI tools. It has CLA and contribution-stats side
+  effects.
+- AI tools never add `Signed-off-by`. Only humans can certify the DCO.
+- PR descriptions state how AI was used.
+- Configure each agent's attribution setting to emit `Assisted-by` instead of its
+  default trailer.
+- Trivial assistance (a single autocompleted line) does not need a trailer.
