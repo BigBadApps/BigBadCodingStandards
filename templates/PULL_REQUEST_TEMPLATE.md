@@ -1,6 +1,7 @@
 ## Summary
 
 - What changed and why?
+- AI assistance: which agent/model, and for what (or "none").
 
 ## Risk
 

@@ -97,6 +97,8 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
 - [`TESTING.md`](standards/TESTING.md) · [`CODE_REVIEW.md`](standards/CODE_REVIEW.md) ·
   [`PR_CHECKLIST.md`](standards/PR_CHECKLIST.md)
 - [`EVALS.md`](standards/EVALS.md) — evals for AI features and agent configuration
+- [`GIT_CONVENTIONS.md`](standards/GIT_CONVENTIONS.md) — Conventional Commits, branches,
+  `Assisted-by` AI attribution
 - [`DELIVERY.md`](standards/DELIVERY.md) — PRs → releases → operations
 - [`OBSERVABILITY.md`](standards/OBSERVABILITY.md) ·
   [`DATA_MIGRATIONS.md`](standards/DATA_MIGRATIONS.md)
@@ -107,7 +109,7 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
 - [`SUPPLY_CHAIN.md`](standards/SUPPLY_CHAIN.md) — dependency intake, build integrity,
   provenance, SBOM, SLSA
 - [`AI_AGENT_SECURITY.md`](standards/AI_AGENT_SECURITY.md) — LLM/agentic feature security,
-  sandboxed execution, and working safely with coding agents
+  sandboxed execution, MCP server security, and working safely with coding agents
 - [`DEPENDENCIES.md`](standards/DEPENDENCIES.md) — choosing and maintaining dependencies
 
 ### Web applications (responsive, mixed-stack)
@@ -119,7 +121,8 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
 
 ### Agent productivity
 
-- [`TOOLS_AND_AGENTS.md`](standards/TOOLS_AND_AGENTS.md) — agent loop, context engineering, quality gates
+- [`TOOLS_AND_AGENTS.md`](standards/TOOLS_AND_AGENTS.md) — agent loop, context engineering,
+  deterministic enforcement (hooks/CI), Agent Skills, quality gates
 - [`ROLLOUT.md`](standards/ROLLOUT.md) — publishing and rolling out standards updates
 
 ## Adopting these standards in a product repo

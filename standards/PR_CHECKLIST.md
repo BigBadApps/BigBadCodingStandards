@@ -49,10 +49,13 @@ Use this on every PR (human or agent-authored).
 ## Agent engineering (if applicable)
 
 - [ ] Mechanically checkable "must" rules are enforced in CI or hooks, not prose alone.
-- [ ] New/changed skills are trigger-tested; third-party skills reviewed and pinned.
+- [ ] Hooks are versioned, tested (including the error path), and fail closed.
+- [ ] New/changed skills follow `SKILL.md` format, stay focused, and are trigger-tested;
+  `allowed-tools` set where supported; third-party skills reviewed and pinned.
 - [ ] MCP servers pinned; tool definitions reviewed or diffed (`standards/AI_AGENT_SECURITY.md`).
+- [ ] MCP servers we build use strict input schemas and audit-log tool calls.
 - [ ] Agent-configuration changes cite the failure they prevent (`standards/EVALS.md`).
-- [ ] AI-assisted commits carry an `Assisted-by` trailer (`standards/GIT_CONVENTIONS.md`).
+- [ ] Substantively AI-assisted commits carry an `Assisted-by` trailer (`standards/GIT_CONVENTIONS.md`).
 
 ## Performance and reliability
 

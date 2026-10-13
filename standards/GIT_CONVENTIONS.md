@@ -18,7 +18,9 @@ Format: `<type>(<scope>): <short description>`
 | `fix` | Bug fix |
 | `test` | Adding or updating tests only |
 | `refactor` | Internal restructuring with no behavior change |
-| `chore` | Maintenance: deps, config, tooling, CI |
+| `chore` | Maintenance: deps, config, tooling |
+| `ci` | CI workflow changes |
+| `build` | Build system or packaging changes |
 | `docs` | Documentation only |
 | `perf` | Performance improvement |
 | `revert` | Reverting a prior commit |
@@ -97,5 +99,6 @@ Assisted-by: Claude Code:claude-opus-5-5
 - AI tools never add `Signed-off-by`. Only humans can certify the DCO.
 - PR descriptions state how AI was used.
 - Configure each agent's attribution setting to emit `Assisted-by` instead of its
-  default trailer.
+  default trailer (for example, the `attribution` setting in Claude Code's
+  `.claude/settings.json`).
 - Trivial assistance (a single autocompleted line) does not need a trailer.

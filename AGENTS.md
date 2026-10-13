@@ -85,7 +85,7 @@ A task is done when:
 - **One obvious way**: consistent patterns beat local cleverness.
 - **Default branches**: `main` with short-lived feature branches.
 - **Semantic versioning**: for libraries/services when applicable.
-- **Commit format**: follow `standards/GIT_CONVENTIONS.md` (Conventional Commits). This applies to agent-authored commits too.
+- **Commit format**: follow `standards/GIT_CONVENTIONS.md` (Conventional Commits; AI attribution via an `Assisted-by` trailer, never `Co-Authored-By`). This applies to agent-authored commits too.
 
 ## Standards location
 

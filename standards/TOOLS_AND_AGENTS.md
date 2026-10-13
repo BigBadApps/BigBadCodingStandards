@@ -57,8 +57,11 @@ Enforcement tiers, weakest to strongest:
 - Use agent hooks (for example Claude Code hooks) and pre-commit to block dangerous
   actions: writes to secret files (`.env`, key files), destructive shell commands, and
   edits to protected paths.
-- Hooks are code: versioned, reviewed, tested, and they **fail closed** (if the hook
-  errors, the action is blocked).
+- Hooks are code: versioned, reviewed, and tested. Write them to **fail closed**: any
+  internal error must block the action. Many tools fail open by default (in Claude Code,
+  only exit code 2 or a deny decision blocks; other errors let the action proceed), so
+  test the error path. Pre-commit hooks can be skipped with `--no-verify`, so CI remains
+  the authoritative gate.
 - Hooks do not replace the sandbox. Sandboxed execution in
   `standards/AI_AGENT_SECURITY.md` still applies.
 

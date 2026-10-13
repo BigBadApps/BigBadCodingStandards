@@ -9,7 +9,7 @@ major = breaking conventions/renames).
 ### Added — agent engineering (third pass)
 
 - `standards/TOOLS_AND_AGENTS.md`: **Deterministic enforcement** (prose < hooks < CI;
-  mechanically checkable rules enforced in CI; hooks fail closed) and **Agent Skills**
+  mechanically checkable rules enforced in CI; hooks written to fail closed) and **Agent Skills**
   (`SKILL.md` format, one domain per skill, trigger tests, pinned third-party skills).
 - `standards/EVALS.md`: new. Golden-set evals gating merge for AI features, multi-trial
   pass rates, calibrated LLM-as-judge, and evidence-based agent-configuration changes.
@@ -20,7 +20,13 @@ major = breaking conventions/renames).
 - `standards/PR_CHECKLIST.md`: new Agent engineering section and an eval item.
 - `standards/INDEX.md`, `standards/PLAYBOOK.md`, `README.md`, `templates/PROJECT_AGENTS.md`,
   `templates/cursor-rules/coding-standards.mdc`: propagated the above.
-- CI: fails on merge-conflict markers.
+- `standards/GIT_CONVENTIONS.md`: added `ci` and `build` commit types.
+- `templates/PULL_REQUEST_TEMPLATE.md`: AI assistance field.
+- CI: fails on merge-conflict markers (and fails closed on git errors).
+- **Rollout follow-up for product repos**: template files are copied, not linked. Repos
+  that already copied `templates/PROJECT_AGENTS.md`, the Cursor rule, or the PR template
+  must add the new `Assisted-by` and AI-assistance lines by hand. Configure agents to
+  emit `Assisted-by` instead of `Co-Authored-By`.
 
 ### Added — agent engineering (second pass)
 

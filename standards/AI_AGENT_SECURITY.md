@@ -111,9 +111,10 @@ Reflects MCP specification 2025-11-25; revisit periodically, as this area moves 
 - **Cross-server shadowing**: do not combine servers of different trust levels in one
   agent session that has sensitive access. One server's descriptions can steer how the
   model uses another server's tools.
-- **Remote auth**: OAuth 2.1 with mandatory PKCE. Tokens are audience-bound (RFC 8707)
-  so a server accepts only tokens minted for it. Never pass a client token through to
-  upstream APIs. Never put tokens or auth codes in logs or URLs.
+- **Remote auth**: OAuth 2.1 with mandatory PKCE. Clients request audience-bound tokens
+  (RFC 8707 resource indicators) and servers validate the audience, accepting only
+  tokens minted for them. Never pass a client token through to upstream APIs. Never put
+  access or refresh tokens in URLs, and never log tokens or authorization codes.
 - **Building servers**: strict input schemas (`additionalProperties: false`); validate
   against command injection, path traversal, and SSRF (`standards/SECURITY.md`); audit-log
   tool name, arguments, caller, and outcome (redacted per `standards/OBSERVABILITY.md`).

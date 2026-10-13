@@ -46,7 +46,6 @@
 - [ ] **Step 1: Write the failing test (a scratch file with a marker)**
 
 ```bash
-cd /Volumes/BigBadDrive_1/BigBadCodingStandards
 printf 'ok\n<<<<<<< Updated upstream\nx\n' > scratch-conflict.md
 git add scratch-conflict.md
 ```
