@@ -81,6 +81,8 @@ on demand. They keep `AGENTS.md` lean.
 - Restrict tools with `allowed-tools` where the agent supports it.
 - Third-party skills are dependencies: read the full content before adoption, pin a
   version or commit, and re-review on every update (`standards/AI_AGENT_SECURITY.md`).
+- Skill files can carry hallucinated package installs or repository URLs. Review them like
+  any other dependency (AI-suggested packages, `standards/SUPPLY_CHAIN.md`).
 
 ## Source-of-truth hierarchy
 

@@ -17,6 +17,10 @@ pattern:
 - A trusted package or build step is silently replaced with a malicious version.
 - The malicious code runs with the privileges of the developer machine or the CI pipeline.
 - It exfiltrates secrets/tokens or publishes further malicious versions.
+- **Slopsquatting**: AI coding tools suggest package names that do not exist, and
+  attackers register those names with malicious code. Reported hallucination rates are
+  about 5% for commercial models and about 22% for open models, and many invented names
+  recur across runs, which makes them predictable targets.
 
 Defense is layered: **know what you depend on**, **slow down adoption**, **verify origin**,
 and **contain blast radius**.
@@ -42,6 +46,12 @@ and **contain blast radius**.
   them.
 - Evaluate critical dependencies with **OpenSSF Scorecard** (maintenance, review process,
   branch protection, signed releases, dangerous-workflow checks).
+- **AI-suggested packages (must)**: treat any package name suggested by an AI tool as
+  untrusted. Before installing, verify that it exists on the official registry and check
+  its publisher, first-publish date, and download history. Agents must not add new
+  dependencies without human approval. Where tooling allows, a hook or CI check blocks
+  installs of packages that are not in the lockfile or on an allow-list
+  (`standards/TOOLS_AND_AGENTS.md`).
 
 ## Build and publish integrity (must)
 
@@ -100,6 +110,7 @@ requirement in some markets (EU AI Act Annex IV).
 
 - [ ] Lockfile committed; CI uses frozen-install mode.
 - [ ] New dependency passed the intake checklist in `standards/DEPENDENCIES.md`.
+- [ ] AI-suggested packages verified to exist; publisher, age, and downloads checked.
 - [ ] Adoption cooldown respected for new versions.
 - [ ] Install scripts reviewed / disabled where not needed.
 - [ ] CI actions pinned to commit SHA.
