@@ -21,6 +21,7 @@
 ## Quality and delivery
 
 - `standards/TESTING.md`
+- `standards/EVALS.md`
 - `standards/DELIVERY.md`
 - `standards/PR_CHECKLIST.md`
 - `standards/GIT_CONVENTIONS.md`

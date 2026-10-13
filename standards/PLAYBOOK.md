@@ -55,7 +55,8 @@ Follow `standards/TESTING.md`.
 - E2E tests for critical user journeys if applicable.
 - Run linters/formatters and type checks.
 - Run dependency vulnerability scanning and (web UI) accessibility + Core Web Vitals checks.
-- For LLM/agent features: evaluate against `standards/AI_AGENT_SECURITY.md`.
+- For LLM/agent features: run the eval suite (`standards/EVALS.md`) and check against
+  `standards/AI_AGENT_SECURITY.md`.
 
 Deliverable: automated checks + a human-readable test plan in the PR.
 

@@ -96,6 +96,7 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
 
 - [`TESTING.md`](standards/TESTING.md) · [`CODE_REVIEW.md`](standards/CODE_REVIEW.md) ·
   [`PR_CHECKLIST.md`](standards/PR_CHECKLIST.md)
+- [`EVALS.md`](standards/EVALS.md) — evals for AI features and agent configuration
 - [`DELIVERY.md`](standards/DELIVERY.md) — PRs → releases → operations
 - [`OBSERVABILITY.md`](standards/OBSERVABILITY.md) ·
   [`DATA_MIGRATIONS.md`](standards/DATA_MIGRATIONS.md)
