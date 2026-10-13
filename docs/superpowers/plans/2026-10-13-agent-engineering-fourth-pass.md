@@ -344,8 +344,8 @@ EOF
 
 **Files:**
 
-- Create: `templates/tool-shims/CLAUDE.md`
-- Create: `templates/tool-shims/GEMINI.md`
+- Create: `templates/tool-shims/CLAUDE.shim.md`
+- Create: `templates/tool-shims/GEMINI.shim.md`
 - Create: `templates/tool-shims/copilot-instructions.md`
 - Modify: `standards/TOOLS_AND_AGENTS.md` (the "## Context engineering" list, plus a new section before `## Source-of-truth hierarchy`)
 - Modify: `standards/PROJECT_CONVENTIONS_WEB.md` ("### Option B: Monorepo (multiple deployables)")
@@ -370,7 +370,7 @@ Expected: `ls: templates/tool-shims: No such file or directory`, then all three 
 
 - [ ] **Step 2: Create the shim files**
 
-`templates/tool-shims/CLAUDE.md` (exactly these 3 lines):
+`templates/tool-shims/CLAUDE.shim.md` (exactly these 3 lines):
 
 ```markdown
 @AGENTS.md
@@ -378,7 +378,7 @@ Expected: `ls: templates/tool-shims: No such file or directory`, then all three 
 `AGENTS.md` is the authoritative instruction file for this repo. Do not add rules here.
 ```
 
-`templates/tool-shims/GEMINI.md` (exactly these 3 lines):
+`templates/tool-shims/GEMINI.shim.md` (exactly these 3 lines):
 
 ```markdown
 @AGENTS.md

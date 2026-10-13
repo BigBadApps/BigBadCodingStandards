@@ -40,11 +40,14 @@ deliberately.
   to `standards/` for detail rather than inlining it.
 - Avoid restating the same large context every turn — reference it instead.
 - **Tool-specific files are shims**: `CLAUDE.md`, `GEMINI.md`, and
-  `.github/copilot-instructions.md` only point to `AGENTS.md` (copy from
-  `templates/tool-shims/`). Never duplicate rules into them.
-- **Nested `AGENTS.md` in monorepos**: subdirectories may have their own `AGENTS.md`. The
-  nearest `AGENTS.md` to the edited code wins, and a subdirectory file holds only the
-  differences for that directory.
+  `.github/copilot-instructions.md` only point to `AGENTS.md`. Copy them from
+  `templates/tool-shims/` and drop the `.shim` from the filename. Never duplicate rules
+  into them.
+- **Nested `AGENTS.md` in monorepos**: subdirectories may have their own `AGENTS.md`.
+  Rules layer from the repo root down to the nearest file, and on conflict the nearest
+  file wins. A subdirectory file holds only the differences for that directory. Tools
+  that do not read `AGENTS.md` natively (Claude Code, Gemini CLI) need a sibling shim
+  next to each nested `AGENTS.md`.
 
 ## Deterministic enforcement (must)
 
@@ -99,8 +102,9 @@ When several agents work at once:
   in sequence.
 - No shared mutable state between agents: no shared scratch files, databases, or ports
   without isolation.
-- One PR per agent task. A human or a gated pipeline merges, never an agent merging
-  another agent's work.
+- A lead agent may combine its subagents' branches into one feature branch. Merges into
+  the default or a protected branch go through PR review, and a human or a gated
+  pipeline performs them; agents never merge there.
 - Each agent runs the full verification (tests, lint, typecheck) on its own branch before
   handing off.
 

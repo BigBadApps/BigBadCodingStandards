@@ -1,5 +1,8 @@
 # Design: <feature / change name>
 
+- Status: Draft | Approved
+- Approved by: <name, date>
+
 ## Summary
 
 One paragraph: what and why.

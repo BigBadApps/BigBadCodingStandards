@@ -7,7 +7,7 @@ Use this on every PR (human or agent-authored).
 - [ ] PR is small, cohesive, and reviewable.
 - [ ] PR description includes **what/why**, not just what changed.
 - [ ] User-facing behavior changes are called out.
-- [ ] Non-trivial change has an approved design (`templates/DESIGN.md`).
+- [ ] Design-required change has an approved design doc (`standards/PLAYBOOK.md` step 2).
 
 ## Correctness
 
@@ -59,7 +59,7 @@ Use this on every PR (human or agent-authored).
 - [ ] MCP servers we build use strict input schemas and audit-log tool calls.
 - [ ] Agent-configuration changes cite the failure they prevent (`standards/EVALS.md`).
 - [ ] Substantively AI-assisted commits carry an `Assisted-by` trailer (`standards/GIT_CONVENTIONS.md`).
-- [ ] Parallel agent work uses separate branches with disjoint files.
+- [ ] Parallel agent work used separate branches; overlapping files were worked in sequence.
 
 ## Performance and reliability
 

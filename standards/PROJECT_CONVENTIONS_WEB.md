@@ -28,8 +28,8 @@ Choose one; document the choice in the repo `README.md`.
 - `packages/ui/` (design system)
 - `packages/shared/` (schemas/types; published or workspace package)
 - `docs/`
-- Per-package `AGENTS.md` files for package-specific rules (nearest `AGENTS.md` wins;
-  see `standards/TOOLS_AND_AGENTS.md`)
+- Per-package `AGENTS.md` files for package-specific rules (rules layer from the root;
+  nearest file wins on conflict; see `standards/TOOLS_AND_AGENTS.md`)
 
 ## Required scripts (minimum)
 

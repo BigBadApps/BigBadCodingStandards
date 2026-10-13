@@ -10,13 +10,13 @@ major = breaking conventions/renames).
 
 - `standards/AI_GOVERNANCE.md`: new. NIST AI RMF and ISO/IEC 42001 mapping, EU AI Act
   timeline as amended by Regulation (EU) 2026/1744, and risk-tier recording rules.
-- `standards/PLAYBOOK.md`, `templates/DESIGN.md`, `AGENTS.md`: **spec-first** gate. Non-trivial
+- `standards/PLAYBOOK.md`, `templates/DESIGN.md`, `AGENTS.md`: **spec-first** gate. Design-required
   changes need an approved design with acceptance criteria and a task breakdown.
 - `standards/SUPPLY_CHAIN.md`, `standards/DEPENDENCIES.md`: **slopsquatting** defenses.
   AI-suggested packages are verified before install, and agents cannot add dependencies
   without approval.
-- `templates/tool-shims/`: new `CLAUDE.md`, `GEMINI.md`, and `copilot-instructions.md`
-  shims that point to `AGENTS.md`.
+- `templates/tool-shims/`: new `CLAUDE.shim.md`, `GEMINI.shim.md`, and
+  `copilot-instructions.md` shims that point to `AGENTS.md` (rename when copying).
 - `standards/TOOLS_AND_AGENTS.md`: nested `AGENTS.md` rule for monorepos, a **parallel
   agents** section, and a Skills note on hallucinated installs.
 - `standards/PR_CHECKLIST.md`, `templates/PULL_REQUEST_TEMPLATE.md`, `README.md`,

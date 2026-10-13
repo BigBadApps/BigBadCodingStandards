@@ -19,8 +19,9 @@ pattern:
 - It exfiltrates secrets/tokens or publishes further malicious versions.
 - **Slopsquatting**: AI coding tools suggest package names that do not exist, and
   attackers register those names with malicious code. Reported hallucination rates are
-  about 5% for commercial models and about 22% for open models, and many invented names
-  recur across runs, which makes them predictable targets.
+  about 5% for commercial models and about 22% for open models (Spracklen et al., USENIX
+  Security 2025), and many invented names recur across runs, which makes them predictable
+  targets.
 
 Defense is layered: **know what you depend on**, **slow down adoption**, **verify origin**,
 and **contain blast radius**.
