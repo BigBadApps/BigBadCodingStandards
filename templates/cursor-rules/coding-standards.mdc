@@ -22,4 +22,6 @@ You are working in a repository that follows shared coding standards.
 - Keep diffs small and coherent.
 - Include a test plan for changes.
 - Call out risks and rollout/rollback if relevant.
+- Mark AI-assisted commits with an `Assisted-by: <agent>:<model>` trailer
+  (`docs/coding-standards/standards/GIT_CONVENTIONS.md`).
 

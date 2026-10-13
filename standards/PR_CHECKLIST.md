@@ -17,9 +17,11 @@ Use this on every PR (human or agent-authored).
 
 ## Tests
 
+- [ ] Failing test written before implementation for new behavior/bug fixes (TDD).
 - [ ] Tests added/updated for bug fixes and non-trivial logic.
 - [ ] Tests cover happy path and key error paths.
 - [ ] No flaky tests introduced.
+- [ ] Test names describe the expected behavior, not the implementation.
 
 ## Security
 
@@ -41,7 +43,19 @@ Use this on every PR (human or agent-authored).
 - [ ] External content treated as untrusted; model output validated before privileged use.
 - [ ] Code/shell/DB execution sandboxed; exact logic offloaded to deterministic code.
 - [ ] Resource/cost limits and logging in place; AI-BOM updated if shipping AI features.
+- [ ] Eval suite passes for prompt/model/tool/retrieval changes (`standards/EVALS.md`).
 - [ ] See `standards/AI_AGENT_SECURITY.md`.
+
+## Agent engineering (if applicable)
+
+- [ ] Mechanically checkable "must" rules are enforced in CI or hooks, not prose alone.
+- [ ] Hooks are versioned, tested (including the error path), and fail closed.
+- [ ] New/changed skills follow `SKILL.md` format, stay focused, and are trigger-tested;
+  `allowed-tools` set where supported; third-party skills reviewed and pinned.
+- [ ] MCP servers pinned; tool definitions reviewed or diffed (`standards/AI_AGENT_SECURITY.md`).
+- [ ] MCP servers we build use strict input schemas and audit-log tool calls.
+- [ ] Agent-configuration changes cite the failure they prevent (`standards/EVALS.md`).
+- [ ] Substantively AI-assisted commits carry an `Assisted-by` trailer (`standards/GIT_CONVENTIONS.md`).
 
 ## Performance and reliability
 

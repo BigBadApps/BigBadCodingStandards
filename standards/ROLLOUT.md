@@ -5,6 +5,8 @@ This document defines the recommended way to **publish, pin, and roll out** upda
 ## Canonical repository
 
 - This standards repo is the **source of truth**.
+- Canonical GitHub org/repo: `BigBadApps/BigBadCodingStandards`
+- Canonical URL: `https://github.com/BigBadApps/BigBadCodingStandards.git`
 - Publish it to GitHub and use **tags** (e.g. `v1.0.0`) to create stable versions.
 
 ## In each product repo
@@ -36,6 +38,10 @@ For each product repo:
 3. Open a PR with:
    - summary of what standards changed
    - any required follow-ups (e.g. new CI gate to add)
+
+Use this setup command when adding the submodule initially:
+
+`git submodule add https://github.com/BigBadApps/BigBadCodingStandards.git docs/coding-standards`
 
 ### Recommended: scripted bump across repos
 

@@ -16,6 +16,12 @@ Usage:
 tools/bootstrap-product-repo.sh /abs/path/to/product-repo
 ```
 
+Then add the standards submodule:
+
+```bash
+git submodule add https://github.com/BigBadApps/BigBadCodingStandards.git docs/coding-standards
+```
+
 ## `update-standards-submodules.sh`
 
 Updates standards submodules across multiple repos.

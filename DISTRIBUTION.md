@@ -2,6 +2,12 @@
 
 This repo is meant to be referenced from every product repository.
 
+## Canonical GitHub repository
+
+- Organization: `BigBadApps`
+- Repository: `BigBadCodingStandards`
+- Clone/Submodule URL: `https://github.com/BigBadApps/BigBadCodingStandards.git`
+
 ## Recommended: publish this repo and pin a version
 
 1. Initialize git (once) and commit.
@@ -16,6 +22,7 @@ This repo is meant to be referenced from every product repository.
 Workflow:
 
 - Add submodule at: `docs/coding-standards/`
+- Use URL: `https://github.com/BigBadApps/BigBadCodingStandards.git`
 - Reference `docs/coding-standards/AGENTS.md` (and `standards/INDEX.md`) in project docs.
 
 ## Option B: vendor a snapshot into each project

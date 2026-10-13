@@ -6,6 +6,28 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Added — agent engineering (third pass)
+
+- `standards/TOOLS_AND_AGENTS.md`: **Deterministic enforcement** (prose < hooks < CI;
+  mechanically checkable rules enforced in CI; hooks written to fail closed) and **Agent Skills**
+  (`SKILL.md` format, one domain per skill, trigger tests, pinned third-party skills).
+- `standards/EVALS.md`: new. Golden-set evals gating merge for AI features, multi-trial
+  pass rates, calibrated LLM-as-judge, and evidence-based agent-configuration changes.
+- `standards/AI_AGENT_SECURITY.md`: **MCP servers** (tool poisoning, rug pulls,
+  cross-server shadowing, OAuth 2.1 + PKCE with audience-bound tokens, server hardening).
+- `standards/GIT_CONVENTIONS.md`: **AI attribution** with an `Assisted-by` trailer; no
+  `Co-Authored-By` or `Signed-off-by` for AI.
+- `standards/PR_CHECKLIST.md`: new Agent engineering section and an eval item.
+- `standards/INDEX.md`, `standards/PLAYBOOK.md`, `README.md`, `templates/PROJECT_AGENTS.md`,
+  `templates/cursor-rules/coding-standards.mdc`: propagated the above.
+- `standards/GIT_CONVENTIONS.md`: added `ci` and `build` commit types.
+- `templates/PULL_REQUEST_TEMPLATE.md`: AI assistance field.
+- CI: fails on merge-conflict markers (and fails closed on git errors).
+- **Rollout follow-up for product repos**: template files are copied, not linked. Repos
+  that already copied `templates/PROJECT_AGENTS.md`, the Cursor rule, or the PR template
+  must add the new `Assisted-by` and AI-assistance lines by hand. Configure agents to
+  emit `Assisted-by` instead of `Co-Authored-By`.
+
 ### Added — agent engineering (second pass)
 
 - `standards/ARCHITECTURE.md` — **Deterministic offloading** (keep exact/compliance/DB/math
@@ -43,6 +65,9 @@ major = breaking conventions/renames).
 
 ### Changed
 
+- `AGENTS.md`, `standards/PLAYBOOK.md`: aligned wording. Tests are written **before**
+  implementation (dropped "or alongside"), and `TODO`s are allowed only with a linked issue,
+  matching `standards/CODING.md`.
 - `standards/SECURITY.md` — aligned to OWASP Top 10:2025: SSRF under Broken Access Control,
   new Configuration hardening section (A02), new Handling exceptional conditions section
   (A10), phishing-resistant auth, security headers, supply chain pointer.

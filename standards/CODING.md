@@ -4,17 +4,60 @@ These standards optimize for correctness, clarity, testability, and long-term ma
 
 ## General
 
-- **Prefer clarity over cleverness**: readable code is faster code to maintain.
-- **Keep functions small**: one responsibility, obvious inputs/outputs.
-- **Name things precisely**: avoid vague names (`data`, `manager`, `util`) unless scoped.
-- **Avoid hidden work**: side effects should be explicit.
-- **Do not duplicate logic**: refactor repeated logic into well-named functions.
+- **Prefer clarity over cleverness**: readable code is faster to maintain and review.
+- **Keep functions small**: one responsibility, obvious inputs/outputs, fits on a screen without scrolling.
+- **Name things precisely**: avoid vague names (`data`, `manager`, `util`, `handler`) unless the scope makes them obvious.
+- **Avoid hidden work**: side effects must be explicit — never surprise the caller.
+- **Do not duplicate logic**: three similar lines is the threshold to extract a well-named function.
+
+## Naming conventions
+
+- **Functions/methods**: verb phrases — `calculateTotal`, `fetchUser`, `isValidEmail`.
+- **Booleans**: `is`, `has`, `can`, `should` prefix — `isActive`, `hasPermission`.
+- **Collections**: plural nouns — `users`, `orderItems`.
+- **Constants**: SCREAMING_SNAKE for module-level constants; camelCase for local constants.
+- **Avoid abbreviations** unless they are universally understood in context (`id`, `url`, `http`).
+- Names should make the call site readable without needing to look at the definition.
+
+## Comments
+
+Write no comments by default. Add one only when the **why** is genuinely non-obvious: a hidden constraint, a subtle invariant, a workaround for a known bug, or behavior that would surprise a careful reader.
+
+**Do not write comments that:**
+
+- Describe what the code does (the code already does that).
+- Reference the current task, PR, or caller (“added for the X flow”, “fixes issue #123”).
+- Explain obvious mechanics (“increment counter by 1”).
+
+One short line is the max. Multi-line comment blocks are a code smell — if the code needs that much explanation, restructure it.
+
+## Dead code and unused artifacts
+
+- Remove commented-out code before merging. Version control is the history.
+- Remove unused variables, imports, functions, and files immediately.
+- Do not add `TODO` comments without a linked issue; resolve them in the same PR or file the issue.
+
+## Type safety
+
+- Enable strict mode wherever the language/toolchain supports it.
+- Prefer explicit return types on public functions and module boundaries.
+- Avoid `any` (TypeScript) or equivalent escape hatches. If you need one, isolate it and document why.
+- Make invalid states unrepresentable: prefer union types / discriminated unions over boolean flags.
 
 ## Code organization
 
 - Organize by **business capability** first, not by technical type.
 - Keep “core” logic independent of frameworks (web, DB, UI).
 - Centralize cross-cutting concerns (auth, logging, config).
+- One concept per file for non-trivial modules; avoid barrel files that re-export everything.
+
+## Function discipline
+
+A function should do one thing at one level of abstraction. If you find yourself mixing orchestration with low-level detail in the same function, split it.
+
+- Maximum useful heuristic: if you can't describe what a function does in one sentence without “and”, it does too much.
+- Avoid boolean parameters that change behavior — prefer two named functions instead.
+- Prefer early returns to deeply nested conditionals.
 
 ## Error handling
 

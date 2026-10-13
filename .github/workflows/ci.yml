@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check for merge-conflict markers
+        run: |
+          set +e
+          git grep -nE '^(<<<<<<<|>>>>>>>)( |$)'
+          rc=$?
+          if [ "$rc" -eq 0 ]; then echo "Merge-conflict markers found."; exit 1; fi
+          if [ "$rc" -ne 1 ]; then echo "git grep failed (exit $rc)."; exit "$rc"; fi
+
       - name: Lint Markdown
         run: npx --yes markdownlint-cli2 "**/*.md" "#node_modules"
 

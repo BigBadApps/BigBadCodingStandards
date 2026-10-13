@@ -31,14 +31,20 @@ Prefer small “slices” that can ship independently.
 
 Deliverable: `templates/DESIGN.md` (or ADR if it’s a durable decision).
 
-## 3) Implement safely
+## 3) Implement safely (TDD)
+
+Follow the Red-Green-Refactor cycle for all new behavior and bug fixes:
+
+1. **Red**: write a failing test that captures the desired behavior or reproduces the bug.
+2. **Green**: write the minimal code to make it pass.
+3. **Refactor**: clean up the code without breaking the test.
 
 - Keep diffs minimal and coherent.
 - Follow `standards/CODING.md` and `standards/ARCHITECTURE.md`.
 - Add input validation and safe defaults.
 - Avoid “action at a distance” changes.
 
-Deliverable: working code with tests.
+Deliverable: working code where tests were written before the implementation.
 
 ## 4) Verify (prove it works)
 
@@ -49,7 +55,8 @@ Follow `standards/TESTING.md`.
 - E2E tests for critical user journeys if applicable.
 - Run linters/formatters and type checks.
 - Run dependency vulnerability scanning and (web UI) accessibility + Core Web Vitals checks.
-- For LLM/agent features: evaluate against `standards/AI_AGENT_SECURITY.md`.
+- For LLM/agent features: run the eval suite (`standards/EVALS.md`) and check against
+  `standards/AI_AGENT_SECURITY.md`.
 
 Deliverable: automated checks + a human-readable test plan in the PR.
 

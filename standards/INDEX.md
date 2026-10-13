@@ -21,14 +21,16 @@
 ## Quality and delivery
 
 - `standards/TESTING.md`
+- `standards/EVALS.md`
 - `standards/DELIVERY.md`
 - `standards/PR_CHECKLIST.md`
+- `standards/GIT_CONVENTIONS.md`
 
 ## Security and operations
 
 - `standards/SECURITY.md` (OWASP Top 10:2025 aligned)
 - `standards/SUPPLY_CHAIN.md` (provenance, SBOM, SLSA, build integrity)
-- `standards/AI_AGENT_SECURITY.md` (LLM + agentic app security; working with coding agents)
+- `standards/AI_AGENT_SECURITY.md` (LLM + agentic app security; MCP servers; working with coding agents)
 - `standards/OBSERVABILITY.md`
 - `standards/DATA_MIGRATIONS.md`
 - `standards/DEPENDENCIES.md`
