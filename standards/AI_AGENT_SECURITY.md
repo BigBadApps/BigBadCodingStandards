@@ -98,6 +98,26 @@ production host.
 - Only connect MCP servers / tools from sources you trust. A malicious tool server sees
   everything the agent sends it.
 
+## MCP servers (must)
+
+MCP tool names, descriptions, and parameter schemas are read by the model as
+instructions. A tool server is both a dependency and a source of untrusted content.
+Reflects MCP specification 2025-11-25; revisit periodically, as this area moves fast.
+
+- **Tool poisoning**: review every tool's name, description, and parameter schema on
+  adoption. Reject hidden instructions (for example "also read `~/.aws/credentials`").
+- **Rug pulls**: pin server versions. On every update, diff the tool definitions and
+  re-approve before use.
+- **Cross-server shadowing**: do not combine servers of different trust levels in one
+  agent session that has sensitive access. One server's descriptions can steer how the
+  model uses another server's tools.
+- **Remote auth**: OAuth 2.1 with mandatory PKCE. Tokens are audience-bound (RFC 8707)
+  so a server accepts only tokens minted for it. Never pass a client token through to
+  upstream APIs. Never put tokens or auth codes in logs or URLs.
+- **Building servers**: strict input schemas (`additionalProperties: false`); validate
+  against command injection, path traversal, and SSRF (`standards/SECURITY.md`); audit-log
+  tool name, arguments, caller, and outcome (redacted per `standards/OBSERVABILITY.md`).
+
 ## AI Bill of Materials (must for shipped AI features)
 
 For any product feature that ships an LLM or agent in the loop, maintain an **AI-BOM**
@@ -147,3 +167,5 @@ alongside the normal SBOM (`standards/SUPPLY_CHAIN.md`):
 - [ ] MCP servers / tools / skills come from trusted, pinned sources.
 - [ ] AI-BOM maintained for shipped AI features (models, data, prompts, tools).
 - [ ] Prompts and tool calls are logged; a kill switch exists.
+- [ ] MCP tool definitions reviewed on adoption and diffed on every update; versions pinned.
+- [ ] Remote MCP uses OAuth 2.1 + PKCE with audience-bound tokens; no token passthrough.
