@@ -15,6 +15,14 @@ One paragraph: what and why.
 - Non-functional (latency, throughput, cost, compliance):
 - Compatibility constraints:
 
+## Acceptance criteria
+
+- Testable statements of done. Each one becomes at least one test.
+
+## Task breakdown
+
+1. Ordered, independently reviewable tasks.
+
 ## Proposed approach
 
 - Architecture overview:
@@ -28,6 +36,7 @@ One paragraph: what and why.
 - Data classification:
 - Threats and mitigations:
 - AuthN/AuthZ:
+- AI use and EU AI Act risk tier (if the change ships AI; see `standards/AI_GOVERNANCE.md`):
 
 ## Observability
 

@@ -29,6 +29,17 @@ Prefer small “slices” that can ship independently.
 - Decide error handling and retry semantics.
 - Define observability: what to log, measure, and alert on.
 
+### Spec-first (must for non-trivial changes)
+
+A change is **non-trivial** if it adds or changes a public interface, changes data or
+schemas, or changes behavior across more than one module.
+
+- For non-trivial changes, write `templates/DESIGN.md` with acceptance criteria and a
+  task breakdown, and get human approval **before** implementation starts. This applies
+  to agents and humans alike.
+- Trivial changes (a typo, a one-function fix, a config tweak) need only a short summary
+  in the PR.
+
 Deliverable: `templates/DESIGN.md` (or ADR if it’s a durable decision).
 
 ## 3) Implement safely (TDD)
