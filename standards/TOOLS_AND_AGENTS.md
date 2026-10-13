@@ -39,6 +39,12 @@ deliberately.
 - **Keep `AGENTS.md` lean**: it is loaded every run. High-signal constraints only; link out
   to `standards/` for detail rather than inlining it.
 - Avoid restating the same large context every turn — reference it instead.
+- **Tool-specific files are shims**: `CLAUDE.md`, `GEMINI.md`, and
+  `.github/copilot-instructions.md` only point to `AGENTS.md` (copy from
+  `templates/tool-shims/`). Never duplicate rules into them.
+- **Nested `AGENTS.md` in monorepos**: subdirectories may have their own `AGENTS.md`. The
+  nearest `AGENTS.md` to the edited code wins, and a subdirectory file holds only the
+  differences for that directory.
 
 ## Deterministic enforcement (must)
 
@@ -83,6 +89,20 @@ on demand. They keep `AGENTS.md` lean.
   version or commit, and re-review on every update (`standards/AI_AGENT_SECURITY.md`).
 - Skill files can carry hallucinated package installs or repository URLs. Review them like
   any other dependency (AI-suggested packages, `standards/SUPPLY_CHAIN.md`).
+
+## Parallel agents (should)
+
+When several agents work at once:
+
+- One branch or git worktree per agent. Agents never share a working tree.
+- Assign disjoint files or modules per agent. If two tasks touch the same file, run them
+  in sequence.
+- No shared mutable state between agents: no shared scratch files, databases, or ports
+  without isolation.
+- One PR per agent task. A human or a gated pipeline merges, never an agent merging
+  another agent's work.
+- Each agent runs the full verification (tests, lint, typecheck) on its own branch before
+  handing off.
 
 ## Source-of-truth hierarchy
 

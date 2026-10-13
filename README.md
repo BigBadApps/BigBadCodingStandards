@@ -124,7 +124,7 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
 ### Agent productivity
 
 - [`TOOLS_AND_AGENTS.md`](standards/TOOLS_AND_AGENTS.md) — agent loop, context engineering,
-  deterministic enforcement (hooks/CI), Agent Skills, quality gates
+  deterministic enforcement (hooks/CI), Agent Skills, parallel agents, quality gates
 - [`ROLLOUT.md`](standards/ROLLOUT.md) — publishing and rolling out standards updates
 
 ## Adopting these standards in a product repo

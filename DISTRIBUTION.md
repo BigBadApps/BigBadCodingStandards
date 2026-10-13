@@ -54,6 +54,14 @@ In each product repo, add a short `AGENTS.md` with:
 
 This works even when agents can’t access external URLs.
 
+## Tool-specific shims (optional)
+
+If a tool reads its own instruction file, add a one-line shim that points to `AGENTS.md`
+instead of copying rules. Templates live in `templates/tool-shims/`:
+
+- `CLAUDE.md` (Claude Code) and `GEMINI.md` (Gemini CLI) at the repo root
+- `copilot-instructions.md` in `.github/` (GitHub Copilot)
+
 ## Suggested minimal bootstrap for product repos
 
 Add these files to every product repo:
