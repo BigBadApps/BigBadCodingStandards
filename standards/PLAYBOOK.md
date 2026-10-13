@@ -44,7 +44,7 @@ Follow the Red-Green-Refactor cycle for all new behavior and bug fixes:
 - Add input validation and safe defaults.
 - Avoid “action at a distance” changes.
 
-Deliverable: working code where tests were written before (or alongside) the implementation.
+Deliverable: working code where tests were written before the implementation.
 
 ## 4) Verify (prove it works)
 

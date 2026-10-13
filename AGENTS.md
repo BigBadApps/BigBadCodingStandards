@@ -34,7 +34,7 @@ Deliver software that is:
   diff; let a human or a gated pipeline apply it.
 - **Supply chain discipline**: do not add dependencies outside `standards/DEPENDENCIES.md`,
   weaken CI gates, or disable security controls without an explicit human decision.
-- **No dead code**: do not leave commented-out code, unused imports, or unresolved TODOs in a merged PR.
+- **No dead code**: do not leave commented-out code, unused imports, or `TODO`s without a linked issue in a merged PR (see `standards/CODING.md`).
 
 ## Default workflow (end-to-end)
 

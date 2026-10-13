@@ -65,6 +65,9 @@ major = breaking conventions/renames).
 
 ### Changed
 
+- `AGENTS.md`, `standards/PLAYBOOK.md`: aligned wording. Tests are written **before**
+  implementation (dropped "or alongside"), and `TODO`s are allowed only with a linked issue,
+  matching `standards/CODING.md`.
 - `standards/SECURITY.md` — aligned to OWASP Top 10:2025: SSRF under Broken Access Control,
   new Configuration hardening section (A02), new Handling exceptional conditions section
   (A10), phishing-resistant auth, security headers, supply chain pointer.
