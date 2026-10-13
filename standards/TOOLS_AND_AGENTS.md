@@ -40,6 +40,45 @@ deliberately.
   to `standards/` for detail rather than inlining it.
 - Avoid restating the same large context every turn — reference it instead.
 
+## Deterministic enforcement (must)
+
+Agents follow written instructions most of the time, not all of the time. Rules that
+matter must be enforced by tooling, not only stated in prose.
+
+Enforcement tiers, weakest to strongest:
+
+1. **Prose**: `AGENTS.md` and `standards/`. Guidance only.
+2. **Local hooks and pre-commit**: fast feedback, and blocking of dangerous actions before
+   they happen.
+3. **CI**: the authoritative gate. Nothing merges without it.
+
+- Any "must" rule that can be checked mechanically is enforced in CI. A rule enforced only
+  by prose is not enforced.
+- Use agent hooks (for example Claude Code hooks) and pre-commit to block dangerous
+  actions: writes to secret files (`.env`, key files), destructive shell commands, and
+  edits to protected paths.
+- Hooks are code: versioned, reviewed, tested, and they **fail closed** (if the hook
+  errors, the action is blocked).
+- Hooks do not replace the sandbox. Sandboxed execution in
+  `standards/AI_AGENT_SECURITY.md` still applies.
+
+## Agent Skills (must when skills are used)
+
+Agent Skills package task-specific instructions in a `SKILL.md` file that an agent loads
+on demand. They keep `AGENTS.md` lean.
+
+- Use the `SKILL.md` format with `name` and `description` frontmatter. The description
+  says when the skill applies.
+- One skill per task domain. Keep `SKILL.md` under about 5k tokens, and move reference
+  material into separate files the skill loads only when needed.
+- Write direct commands ("Run the migration check"), not passive descriptions.
+- Commit shared skills to the repo so they are reviewed and versioned with the code.
+- **Trigger tests**: record 5–10 prompts that should activate the skill and 3–5 that
+  should not, next to the skill. Re-check them when the description changes.
+- Restrict tools with `allowed-tools` where the agent supports it.
+- Third-party skills are dependencies: read the full content before adoption, pin a
+  version or commit, and re-review on every update (`standards/AI_AGENT_SECURITY.md`).
+
 ## Source-of-truth hierarchy
 
 When deciding behavior, use:
