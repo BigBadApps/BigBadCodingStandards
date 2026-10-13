@@ -6,6 +6,22 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Added — agent engineering (third pass)
+
+- `standards/TOOLS_AND_AGENTS.md`: **Deterministic enforcement** (prose < hooks < CI;
+  mechanically checkable rules enforced in CI; hooks fail closed) and **Agent Skills**
+  (`SKILL.md` format, one domain per skill, trigger tests, pinned third-party skills).
+- `standards/EVALS.md`: new. Golden-set evals gating merge for AI features, multi-trial
+  pass rates, calibrated LLM-as-judge, and evidence-based agent-configuration changes.
+- `standards/AI_AGENT_SECURITY.md`: **MCP servers** (tool poisoning, rug pulls,
+  cross-server shadowing, OAuth 2.1 + PKCE with audience-bound tokens, server hardening).
+- `standards/GIT_CONVENTIONS.md`: **AI attribution** with an `Assisted-by` trailer; no
+  `Co-Authored-By` or `Signed-off-by` for AI.
+- `standards/PR_CHECKLIST.md`: new Agent engineering section and an eval item.
+- `standards/INDEX.md`, `standards/PLAYBOOK.md`, `README.md`, `templates/PROJECT_AGENTS.md`,
+  `templates/cursor-rules/coding-standards.mdc`: propagated the above.
+- CI: fails on merge-conflict markers.
+
 ### Added — agent engineering (second pass)
 
 - `standards/ARCHITECTURE.md` — **Deterministic offloading** (keep exact/compliance/DB/math

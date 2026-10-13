@@ -43,7 +43,16 @@ Use this on every PR (human or agent-authored).
 - [ ] External content treated as untrusted; model output validated before privileged use.
 - [ ] Code/shell/DB execution sandboxed; exact logic offloaded to deterministic code.
 - [ ] Resource/cost limits and logging in place; AI-BOM updated if shipping AI features.
+- [ ] Eval suite passes for prompt/model/tool/retrieval changes (`standards/EVALS.md`).
 - [ ] See `standards/AI_AGENT_SECURITY.md`.
+
+## Agent engineering (if applicable)
+
+- [ ] Mechanically checkable "must" rules are enforced in CI or hooks, not prose alone.
+- [ ] New/changed skills are trigger-tested; third-party skills reviewed and pinned.
+- [ ] MCP servers pinned; tool definitions reviewed or diffed (`standards/AI_AGENT_SECURITY.md`).
+- [ ] Agent-configuration changes cite the failure they prevent (`standards/EVALS.md`).
+- [ ] AI-assisted commits carry an `Assisted-by` trailer (`standards/GIT_CONVENTIONS.md`).
 
 ## Performance and reliability
 
