@@ -6,6 +6,14 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Added
+
+- `standards/SECURITY.md`: **SSRF** section (must for server-side fetches). It covers scheme and
+  host allow-lists, checking every resolved IP (DNS rebinding), following redirects manually with
+  a check on each hop, a blocked-range table including IPv4-mapped, NAT64, and 6to4 addresses,
+  and required tests. Upstreamed from BigBadMeals, with the redirect rule corrected.
+- `standards/PR_CHECKLIST.md`: SSRF line now requires a guard with tests.
+
 ## [1.1.0] - 2026-10-14
 
 ### Added — follow-ups

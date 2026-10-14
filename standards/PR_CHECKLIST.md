@@ -27,7 +27,8 @@ Use this on every PR (human or agent-authored).
 ## Security
 
 - [ ] No secrets committed.
-- [ ] AuthN/AuthZ enforced where required; SSRF egress controlled for server-side fetches.
+- [ ] AuthN/AuthZ enforced where required; server-side fetches of external URLs use an SSRF
+  guard with tests (`standards/SECURITY.md`).
 - [ ] Security headers / config unchanged or reviewed (OWASP A02).
 - [ ] User-influenced errors don't leak internal detail.
 
