@@ -6,6 +6,8 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-14
+
 ### Added — follow-ups
 
 - `tools/check-commits.sh`: checks Conventional Commit subjects (git's default `Revert "..."`
