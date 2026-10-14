@@ -24,6 +24,13 @@ for f in "${files[@]}"; do
 done
 echo "ok: existing files are never overwritten"
 
+link_repo=$(mktemp -d)
+trap 'rm -rf "$repo" "$link_repo"' EXIT
+ln -s "$link_repo/nowhere.md" "$link_repo/CLAUDE.md"
+bash "$script" "$link_repo" >/dev/null
+[[ ! -e "$link_repo/nowhere.md" ]] || { echo "FAIL: wrote through a dangling symlink"; exit 1; }
+echo "ok: dangling symlinks are left alone"
+
 if out=$(bash "$script" "$repo/missing" 2>&1); then echo "FAIL: missing path accepted"; exit 1; fi
 [[ "$out" == *"Repo path not found"* ]] || { echo "FAIL: wrong error for missing path: $out"; exit 1; }
 echo "ok: missing repo path is rejected"

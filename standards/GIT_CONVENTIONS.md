@@ -2,7 +2,12 @@
 
 Consistent git hygiene makes changes auditable, reviewable, and automatable — especially important for agent-generated work.
 
-## Commit messages (must; CI-enforced: Conventional Commits)
+Each section's label is its default strength. Bullets that say "prefer" are recommendations
+even inside a "must" section. `tools/check-commits.sh` checks the subject format and AI
+co-author rules; it runs in this repo's CI, and product repos can run it from
+`docs/coding-standards/tools/` (see `tools/README.md`).
+
+## Commit messages (must; format checked by tools/check-commits.sh)
 
 Format: `<type>(<scope>): <short description>`
 
@@ -61,7 +66,7 @@ test/billing-edge-cases
 - Keep slugs short (3–5 words max).
 - Always branch from `main` for short-lived feature work.
 
-## Commit hygiene (should)
+## Commit hygiene (should; never committing secrets is a must)
 
 - **One logical change per commit.** Do not bundle unrelated fixes in one commit.
 - **Atomic commits**: the code should build and tests should pass at every commit.
@@ -77,7 +82,7 @@ Agent-generated commits must follow the same conventions as human-authored commi
 - The subject line must describe the *change*, not the task ("fix: validate email on signup" not "implement task 3").
 - If an agent makes multiple distinct changes in one session, prefer multiple commits over one large commit.
 
-## AI attribution (must; CI rejects AI tools as Co-Authored-By)
+## AI attribution (must; tools/check-commits.sh rejects AI tools as Co-Authored-By)
 
 Disclose substantive AI assistance with a commit trailer:
 

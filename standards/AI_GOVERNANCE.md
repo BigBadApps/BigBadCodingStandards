@@ -15,7 +15,7 @@ counsel for your jurisdiction and product.
 | Measure | Test, evaluate, monitor | `standards/EVALS.md`, `standards/OBSERVABILITY.md` |
 | Manage | Prioritize and act on risk | `standards/AI_AGENT_SECURITY.md` (human approval, kill switch), `standards/ROLLOUT.md` |
 
-For generative AI features, also apply **NIST AI 600-1** (Generative AI Profile), which
+For generative AI features, also apply **[NIST AI 600-1](https://doi.org/10.6028/NIST.AI.600-1)** (Generative AI Profile), which
 maps generative-AI risks such as confabulation, data privacy, and information integrity
 onto the same four functions.
 

@@ -24,7 +24,7 @@ templates="$(cd "$(dirname "$0")/.." && pwd)/templates"
 
 install_file() { # install_file <template path> <destination relative to repo>
   local src="$templates/$1" dest="$repo/$2"
-  if [[ -e "$dest" ]]; then
+  if [[ -e "$dest" || -L "$dest" ]]; then
     echo "- skipped $2 (already exists)"
     return
   fi

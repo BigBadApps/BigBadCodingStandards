@@ -31,7 +31,7 @@ ai_email_re='^(noreply@anthropic\.com|.*copilot.*@users\.noreply\.github\.com|cu
 fail=0
 while IFS= read -r sha; do
   subject=$(git log -1 --format=%s "$sha")
-  if [[ ! "$subject" =~ $subject_re ]]; then
+  if [[ ! "$subject" =~ $subject_re && ! "$subject" =~ ^Revert\ \".+\"$ ]]; then
     echo "::error::${sha:0:7} subject is not a Conventional Commit: ${subject}"
     fail=1
   fi

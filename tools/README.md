@@ -52,3 +52,10 @@ tools/check-commits.sh origin/main HEAD
 ```
 
 Self-test: `bash tools/test-check-commits.sh`.
+
+In a product repo's CI, run it from the submodule. Check out with `fetch-depth: 0` and
+`submodules: true`, then:
+
+```bash
+bash docs/coding-standards/tools/check-commits.sh "origin/$BASE_REF" HEAD
+```

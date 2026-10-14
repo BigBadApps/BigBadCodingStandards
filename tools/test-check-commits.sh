@@ -42,6 +42,10 @@ git commit -q --allow-empty -m "Update stuff"
 expect fail "non-conventional subject"
 
 base=$(git rev-parse HEAD)
+git commit -q --allow-empty -m 'Revert "fix: side work"'
+expect pass "git's default revert subject"
+
+base=$(git rev-parse HEAD)
 git commit -q --allow-empty -m "fix: thing" -m "Co-Authored-By: Claude <noreply@anthropic.com>"
 expect fail "AI tool as co-author"
 
