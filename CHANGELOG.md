@@ -6,6 +6,8 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-14
+
 ### Added
 
 - `standards/SECURITY.md`: **SSRF** section (must for server-side fetches). It covers scheme and
