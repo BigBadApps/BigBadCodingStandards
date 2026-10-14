@@ -28,6 +28,8 @@ expect pass "breaking change with a human co-author"
 
 git commit -q --allow-empty -m "fix: pair work" -m "Co-Authored-By: Sam Lee <sam@anthropic.com>"
 expect pass "human co-author with an AI-company email"
+git commit -q --allow-empty -m "fix: pair work" -m "Co-Authored-By: Devin Patel <devin@example.com>"
+expect pass "human whose first name is an AI tool name"
 
 git checkout -q -b side
 git commit -q --allow-empty -m "fix: side work"

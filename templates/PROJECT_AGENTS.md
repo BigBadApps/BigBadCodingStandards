@@ -1,4 +1,4 @@
-<!-- Template: tools/bootstrap-product-repo.sh copies this to the product repo as AGENTS.md. -->
+<!-- Generated from BigBadCodingStandards templates/PROJECT_AGENTS.md; edit freely for this repo. -->
 # Project Agent Instructions
 
 This repository uses shared coding standards. This file follows the AGENTS.md open standard

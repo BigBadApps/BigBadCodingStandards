@@ -22,10 +22,10 @@ done
 
 types='feat|fix|test|refactor|chore|ci|build|docs|perf|revert'
 subject_re="^(${types})(\([a-z0-9._/-]+\))?!?: .+"
-# An AI co-author is a trailer whose name starts with an AI tool's name, or whose email
+# An AI co-author is a trailer whose name starts with an AI tool's name (or is exactly an ambiguous one such as Devin or Gemini), or whose email
 # is a known AI bot address. Matching only the name start avoids rejecting humans who
 # work at AI companies.
-ai_name_re='^(claude|github copilot|copilot|cursor agent|cursor|codex|chatgpt|gemini|devin|aider)([^a-z]|$)'
+ai_name_re='^((claude|github copilot|copilot|cursor agent|codex|chatgpt|aider)([^a-z]|$)|(devin|gemini|cursor)$)'
 ai_email_re='^(noreply@anthropic\.com|.*copilot.*@users\.noreply\.github\.com|cursoragent@cursor\.com)$'
 
 fail=0

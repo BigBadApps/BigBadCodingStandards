@@ -17,15 +17,15 @@ done
 grep -q '^@AGENTS.md$' "$repo/CLAUDE.md" || { echo "FAIL: CLAUDE.md is not the shim"; exit 1; }
 echo "ok: fresh repo gets all files"
 
-echo "custom" > "$repo/.cursor/rules/coding-standards.mdc"
-echo "custom" > "$repo/AGENTS.md"
+for f in "${files[@]}"; do echo "custom" > "$repo/$f"; done
 bash "$script" "$repo" >/dev/null
-for f in AGENTS.md .cursor/rules/coding-standards.mdc; do
+for f in "${files[@]}"; do
   [[ "$(cat "$repo/$f")" == "custom" ]] || { echo "FAIL: $f was overwritten"; exit 1; }
 done
 echo "ok: existing files are never overwritten"
 
-if bash "$script" "$repo/missing" >/dev/null 2>&1; then echo "FAIL: missing path accepted"; exit 1; fi
+if out=$(bash "$script" "$repo/missing" 2>&1); then echo "FAIL: missing path accepted"; exit 1; fi
+[[ "$out" == *"Repo path not found"* ]] || { echo "FAIL: wrong error for missing path: $out"; exit 1; }
 echo "ok: missing repo path is rejected"
 
 echo "All bootstrap tests passed."

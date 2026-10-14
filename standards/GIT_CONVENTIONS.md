@@ -2,7 +2,7 @@
 
 Consistent git hygiene makes changes auditable, reviewable, and automatable — especially important for agent-generated work.
 
-## Commit messages (Conventional Commits)
+## Commit messages (must; CI-enforced: Conventional Commits)
 
 Format: `<type>(<scope>): <short description>`
 
@@ -46,7 +46,7 @@ feat(api)!: remove deprecated v1 endpoints
 BREAKING CHANGE: /api/v1/* routes are removed. Use /api/v2/*.
 ```
 
-## Branch naming
+## Branch naming (should)
 
 Format: `<type>/<short-slug>`
 
@@ -61,7 +61,7 @@ test/billing-edge-cases
 - Keep slugs short (3–5 words max).
 - Always branch from `main` for short-lived feature work.
 
-## Commit hygiene
+## Commit hygiene (should)
 
 - **One logical change per commit.** Do not bundle unrelated fixes in one commit.
 - **Atomic commits**: the code should build and tests should pass at every commit.
@@ -69,7 +69,7 @@ test/billing-edge-cases
 - **Do not commit**: secrets, generated build artifacts, `.DS_Store`, IDE-specific files.
 - Keep `.gitignore` up to date as new tool configs are introduced.
 
-## Agent-authored commits
+## Agent-authored commits (must)
 
 Agent-generated commits must follow the same conventions as human-authored commits:
 
@@ -77,7 +77,7 @@ Agent-generated commits must follow the same conventions as human-authored commi
 - The subject line must describe the *change*, not the task ("fix: validate email on signup" not "implement task 3").
 - If an agent makes multiple distinct changes in one session, prefer multiple commits over one large commit.
 
-## AI attribution
+## AI attribution (must; CI rejects AI tools as Co-Authored-By)
 
 Disclose substantive AI assistance with a commit trailer:
 

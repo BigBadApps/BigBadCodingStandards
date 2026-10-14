@@ -6,6 +6,19 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Changed — follow-ups
+
+- `tools/bootstrap-product-repo.sh`: renders `AGENTS.md`, the Cursor rule, and tool shims
+  from `templates/`. It never overwrites existing files (it used to overwrite the Cursor rule).
+  Self-test in `tools/test-bootstrap.sh`.
+- `templates/cursor-rules/coding-standards.mdc`: now only points to `AGENTS.md`, with no
+  duplicated rules.
+- CI: `tools/check-commits.sh` enforces Conventional Commit subjects and rejects AI tools as
+  `Co-Authored-By` on pull requests; `actions/checkout` pinned to a commit SHA.
+- `standards/AI_GOVERNANCE.md`: EUR-Lex link for Regulation (EU) 2026/1744, the
+  2 Dec 2026 Art. 5 prohibitions, and NIST AI 600-1.
+- `standards/GIT_CONVENTIONS.md`: each section labelled must or should.
+
 ### Added — agent engineering (fourth pass)
 
 - `standards/AI_GOVERNANCE.md`: new. NIST AI RMF and ISO/IEC 42001 mapping, EU AI Act
