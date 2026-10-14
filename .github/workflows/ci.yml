@@ -10,7 +10,9 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
 
       - name: Check for merge-conflict markers
         run: |
@@ -30,4 +32,10 @@ jobs:
         run: shellcheck --severity=warning tools/*.sh
 
       - name: Self-test tools
-        run: bash tools/test-bootstrap.sh
+        run: |
+          bash tools/test-bootstrap.sh
+          bash tools/test-check-commits.sh
+
+      - name: Check commit messages
+        if: github.event_name == 'pull_request'
+        run: bash tools/check-commits.sh "origin/${{ github.base_ref }}" HEAD

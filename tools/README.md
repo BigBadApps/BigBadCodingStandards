@@ -38,3 +38,17 @@ tools/update-standards-submodules.sh /abs/path/to/REPOS.txt
 ```
 
 Where `REPOS.txt` contains one absolute repo path per line.
+
+## `check-commits.sh`
+
+Checks every non-merge commit in a range. Each subject must be a Conventional Commit, and
+no `Co-Authored-By` trailer may name an AI tool (`standards/GIT_CONVENTIONS.md`). CI runs
+it on pull requests.
+
+Usage:
+
+```bash
+tools/check-commits.sh origin/main HEAD
+```
+
+Self-test: `bash tools/test-check-commits.sh`.
