@@ -15,6 +15,10 @@ counsel for your jurisdiction and product.
 | Measure | Test, evaluate, monitor | `standards/EVALS.md`, `standards/OBSERVABILITY.md` |
 | Manage | Prioritize and act on risk | `standards/AI_AGENT_SECURITY.md` (human approval, kill switch), `standards/ROLLOUT.md` |
 
+For generative AI features, also apply **[NIST AI 600-1](https://doi.org/10.6028/NIST.AI.600-1)** (Generative AI Profile), which
+maps generative-AI risks such as confabulation, data privacy, and information integrity
+onto the same four functions.
+
 ## ISO/IEC 42001 (AI management system)
 
 This is a **partial** mapping, not a gap analysis. Areas marked "not covered" need an
@@ -34,13 +38,15 @@ organization-level process outside these engineering standards.
 
 ## EU AI Act timeline
 
-As amended by the AI Omnibus (Regulation (EU) 2026/1744, in force 27 July 2026):
+As amended by the AI Omnibus ([Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj),
+in force 27 July 2026):
 
 | Date | What applies |
 | ---- | ------------ |
 | 2 Feb 2025 | Prohibited practices; AI literacy duties (the Omnibus may have changed their scope; check the text) |
 | 2 Aug 2025 | General-purpose AI (GPAI) model obligations for new models |
 | 2 Aug 2026 | Art. 50 transparency duties (sources differ on a labelling grace period to 2 Dec 2026; check the regulation text) |
+| 2 Dec 2026 | New Art. 5 prohibitions added by the Omnibus: AI that creates or manipulates non-consensual intimate imagery, and generation of child sexual abuse material |
 | 2 Aug 2027 | GPAI models placed on the market before 2 Aug 2025 |
 | 2 Dec 2027 | Annex III standalone high-risk systems |
 | 2 Aug 2028 | Annex I high-risk AI embedded in regulated products |
