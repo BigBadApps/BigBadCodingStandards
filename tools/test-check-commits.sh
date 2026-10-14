@@ -10,6 +10,7 @@ cd "$tmp"
 git init -q -b main
 git config user.email test@example.com
 git config user.name test
+git config commit.gpgsign false
 git commit -q --allow-empty -m "chore: base"
 base=$(git rev-parse HEAD)
 
@@ -25,6 +26,9 @@ expect pass "conventional subject with Assisted-by"
 git commit -q --allow-empty -m "feat(api)!: drop v1" -m "Co-Authored-By: Jane Doe <jane@example.com>"
 expect pass "breaking change with a human co-author"
 
+git commit -q --allow-empty -m "fix: pair work" -m "Co-Authored-By: Sam Lee <sam@anthropic.com>"
+expect pass "human co-author with an AI-company email"
+
 git checkout -q -b side
 git commit -q --allow-empty -m "fix: side work"
 git checkout -q main
@@ -39,7 +43,19 @@ base=$(git rev-parse HEAD)
 git commit -q --allow-empty -m "fix: thing" -m "Co-Authored-By: Claude <noreply@anthropic.com>"
 expect fail "AI tool as co-author"
 
-if bash "$script" no-such-ref HEAD >/dev/null 2>&1; then echo "FAIL: bad ref accepted"; exit 1; fi
-echo "ok: unknown ref is rejected"
+base=$(git rev-parse HEAD)
+git commit -q --allow-empty -m "fix: thing" -m "co-authored-by: GitHub Copilot <175728472+Copilot@users.noreply.github.com>"
+expect fail "lowercase trailer naming GitHub Copilot"
+
+base=$(git rev-parse HEAD)
+git commit -q --allow-empty -m "feat: "
+expect fail "subject with no description"
+
+set +e
+bash "$script" no-such-ref HEAD >/dev/null 2>&1
+rc=$?
+set -e
+[[ "$rc" -eq 2 ]] || { echo "FAIL: unknown ref (expected exit 2, got $rc)"; exit 1; }
+echo "ok: unknown ref is rejected with exit 2"
 
 echo "All check-commits tests passed."

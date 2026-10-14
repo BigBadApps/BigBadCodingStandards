@@ -22,7 +22,11 @@ done
 
 types='feat|fix|test|refactor|chore|ci|build|docs|perf|revert'
 subject_re="^(${types})(\([a-z0-9._/-]+\))?!?: .+"
-ai_coauthor_re='^co-authored-by:.*(claude|anthropic|copilot|codex|openai|gemini|cursor)'
+# An AI co-author is a trailer whose name starts with an AI tool's name, or whose email
+# is a known AI bot address. Matching only the name start avoids rejecting humans who
+# work at AI companies.
+ai_name_re='^(claude|github copilot|copilot|cursor agent|cursor|codex|chatgpt|gemini|devin|aider)([^a-z]|$)'
+ai_email_re='^(noreply@anthropic\.com|.*copilot.*@users\.noreply\.github\.com|cursoragent@cursor\.com)$'
 
 fail=0
 while IFS= read -r sha; do
@@ -32,10 +36,14 @@ while IFS= read -r sha; do
     fail=1
   fi
   body=$(git log -1 --format=%B "$sha")
-  if grep -qiE "$ai_coauthor_re" <<<"$body"; then
-    echo "::error::${sha:0:7} uses Co-Authored-By for an AI tool; use Assisted-by instead"
-    fail=1
-  fi
+  while IFS= read -r trailer; do
+    name=$(sed -E 's/^[^:]*:[[:space:]]*//; s/[[:space:]]*<.*$//' <<<"$trailer" | tr '[:upper:]' '[:lower:]')
+    email=$(sed -nE 's/.*<([^>]*)>.*/\1/p' <<<"$trailer" | tr '[:upper:]' '[:lower:]')
+    if [[ "$name" =~ $ai_name_re || "$email" =~ $ai_email_re ]]; then
+      echo "::error::${sha:0:7} uses Co-Authored-By for an AI tool; use Assisted-by instead"
+      fail=1
+    fi
+  done < <(grep -iE '^co-authored-by:' <<<"$body" || true)
 done < <(git rev-list --no-merges "$1..$2")
 
 if [[ "$fail" -ne 0 ]]; then

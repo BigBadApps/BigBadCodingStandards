@@ -38,4 +38,6 @@ jobs:
 
       - name: Check commit messages
         if: github.event_name == 'pull_request'
-        run: bash tools/check-commits.sh "origin/${{ github.base_ref }}" HEAD
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: bash tools/check-commits.sh "origin/$BASE_REF" HEAD
