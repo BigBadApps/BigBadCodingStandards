@@ -6,6 +6,11 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Changed
+
+- `standards/ROLLOUT.md`: release steps now label the changelog in a release PR, merge it,
+  and only then tag. A wrong tag is replaced by the next patch, not moved.
+
 ## [1.2.0] - 2026-10-14
 
 ### Added

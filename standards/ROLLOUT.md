@@ -20,14 +20,26 @@ This document defines the recommended way to **publish, pin, and roll out** upda
 
 ## Publishing an update (standards repo)
 
-1. Make changes on a branch.
+1. Make changes on a branch. Record each change under `## [Unreleased]` in `CHANGELOG.md`.
 2. Verify docs are consistent.
 3. Merge to `main`.
-4. Tag a release:
-   - `vX.Y.Z` (increment:
-     - **patch** for clarifications/small guidance
-     - **minor** for new standards/templates
-     - **major** for breaking conventions/renames)
+4. Pick the version `vX.Y.Z` by the largest change since the last tag:
+   - **patch** for clarifications/small guidance
+   - **minor** for new standards/templates
+   - **major** for breaking conventions/renames
+5. Open a release PR that adds `## [X.Y.Z] - YYYY-MM-DD` directly below `## [Unreleased]`,
+   so the unreleased entries now sit under the new version, and merge it.
+6. Only then tag the merge commit and push the tag:
+
+   ```bash
+   git fetch origin && git tag vX.Y.Z origin/main && git push origin vX.Y.Z
+   ```
+
+   Check the tag holds the release before announcing it:
+   `git show vX.Y.Z:CHANGELOG.md | grep -n '## \[X.Y.Z\]'`.
+
+Never move or re-push a published tag. If a tag points at the wrong commit, delete it only if
+nobody can have fetched it yet; otherwise ship the fix as the next patch version.
 
 ## Rolling out an update (product repos)
 
