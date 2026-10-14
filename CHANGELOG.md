@@ -6,6 +6,24 @@ major = breaking conventions/renames).
 
 ## [Unreleased]
 
+### Added — agent engineering (fourth pass)
+
+- `standards/AI_GOVERNANCE.md`: new. NIST AI RMF and ISO/IEC 42001 mapping, EU AI Act
+  timeline as amended by Regulation (EU) 2026/1744, and risk-tier recording rules.
+- `standards/PLAYBOOK.md`, `templates/DESIGN.md`, `AGENTS.md`: **spec-first** gate. Design-required
+  changes need an approved design with acceptance criteria and a task breakdown.
+- `standards/SUPPLY_CHAIN.md`, `standards/DEPENDENCIES.md`: **slopsquatting** defenses.
+  AI-suggested packages are verified before install, and agents cannot add dependencies
+  without approval.
+- `templates/tool-shims/`: new `CLAUDE.shim.md`, `GEMINI.shim.md`, and
+  `copilot-instructions.md` shims that point to `AGENTS.md` (rename when copying).
+- `standards/TOOLS_AND_AGENTS.md`: nested `AGENTS.md` rule for monorepos, a **parallel
+  agents** section, and a Skills note on hallucinated installs.
+- `standards/PR_CHECKLIST.md`, `templates/PULL_REQUEST_TEMPLATE.md`, `README.md`,
+  `standards/INDEX.md`, `DISTRIBUTION.md`, `standards/PROJECT_CONVENTIONS_WEB.md`: propagated the above.
+- **Rollout follow-up for product repos**: copy `templates/tool-shims/` files where tools
+  need them, and record EU AI Act risk tiers for shipped AI features.
+
 ### Added — agent engineering (third pass)
 
 - `standards/TOOLS_AND_AGENTS.md`: **Deterministic enforcement** (prose < hooks < CI;

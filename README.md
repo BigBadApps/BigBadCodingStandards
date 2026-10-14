@@ -110,6 +110,8 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
   provenance, SBOM, SLSA
 - [`AI_AGENT_SECURITY.md`](standards/AI_AGENT_SECURITY.md) — LLM/agentic feature security,
   sandboxed execution, MCP server security, and working safely with coding agents
+- [`AI_GOVERNANCE.md`](standards/AI_GOVERNANCE.md) — NIST AI RMF and ISO/IEC 42001
+  mapping, EU AI Act timeline, AI risk classification
 - [`DEPENDENCIES.md`](standards/DEPENDENCIES.md) — choosing and maintaining dependencies
 
 ### Web applications (responsive, mixed-stack)
@@ -122,7 +124,7 @@ Full navigation in [`standards/INDEX.md`](standards/INDEX.md).
 ### Agent productivity
 
 - [`TOOLS_AND_AGENTS.md`](standards/TOOLS_AND_AGENTS.md) — agent loop, context engineering,
-  deterministic enforcement (hooks/CI), Agent Skills, quality gates
+  deterministic enforcement (hooks/CI), Agent Skills, parallel agents, quality gates
 - [`ROLLOUT.md`](standards/ROLLOUT.md) — publishing and rolling out standards updates
 
 ## Adopting these standards in a product repo

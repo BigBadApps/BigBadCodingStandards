@@ -44,7 +44,7 @@ Use `standards/PLAYBOOK.md` as the detailed guide. At a minimum:
    - Define user-facing behavior, constraints, and non-goals.
    - Identify risks (security, supply chain, prompt injection, data loss, backwards compatibility, performance).
 2. **Design**
-   - Propose architecture and boundaries.
+   - Propose architecture and boundaries; for design-required changes, get the design approved before writing code (see `standards/PLAYBOOK.md`).
    - Choose “boring” proven tech unless there’s a clear win.
 3. **Implement (TDD)**
    - Write a failing test that describes the desired behavior.

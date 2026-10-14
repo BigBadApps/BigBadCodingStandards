@@ -7,6 +7,7 @@ Use this on every PR (human or agent-authored).
 - [ ] PR is small, cohesive, and reviewable.
 - [ ] PR description includes **what/why**, not just what changed.
 - [ ] User-facing behavior changes are called out.
+- [ ] Design-required change has an approved design doc (`standards/PLAYBOOK.md` step 2).
 
 ## Correctness
 
@@ -33,6 +34,7 @@ Use this on every PR (human or agent-authored).
 ## Supply chain (if dependencies or build/release changed)
 
 - [ ] New/updated deps passed `standards/DEPENDENCIES.md` intake; cooldown respected.
+- [ ] AI-suggested packages verified to exist; publisher, age, and downloads checked.
 - [ ] Lockfile committed; CI uses frozen install.
 - [ ] Install scripts reviewed; CI actions pinned to SHA.
 - [ ] Release still produces SLSA provenance + SBOM (`standards/SUPPLY_CHAIN.md`).
@@ -44,6 +46,7 @@ Use this on every PR (human or agent-authored).
 - [ ] Code/shell/DB execution sandboxed; exact logic offloaded to deterministic code.
 - [ ] Resource/cost limits and logging in place; AI-BOM updated if shipping AI features.
 - [ ] Eval suite passes for prompt/model/tool/retrieval changes (`standards/EVALS.md`).
+- [ ] EU AI Act risk tier recorded (`standards/AI_GOVERNANCE.md`).
 - [ ] See `standards/AI_AGENT_SECURITY.md`.
 
 ## Agent engineering (if applicable)
@@ -56,6 +59,7 @@ Use this on every PR (human or agent-authored).
 - [ ] MCP servers we build use strict input schemas and audit-log tool calls.
 - [ ] Agent-configuration changes cite the failure they prevent (`standards/EVALS.md`).
 - [ ] Substantively AI-assisted commits carry an `Assisted-by` trailer (`standards/GIT_CONVENTIONS.md`).
+- [ ] Parallel agent work used separate branches; overlapping files were worked in sequence.
 
 ## Performance and reliability
 

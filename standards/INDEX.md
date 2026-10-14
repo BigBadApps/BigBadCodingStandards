@@ -31,6 +31,7 @@
 - `standards/SECURITY.md` (OWASP Top 10:2025 aligned)
 - `standards/SUPPLY_CHAIN.md` (provenance, SBOM, SLSA, build integrity)
 - `standards/AI_AGENT_SECURITY.md` (LLM + agentic app security; MCP servers; working with coding agents)
+- `standards/AI_GOVERNANCE.md` (NIST AI RMF, ISO/IEC 42001, EU AI Act timeline)
 - `standards/OBSERVABILITY.md`
 - `standards/DATA_MIGRATIONS.md`
 - `standards/DEPENDENCIES.md`

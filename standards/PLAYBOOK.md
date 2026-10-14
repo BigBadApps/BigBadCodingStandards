@@ -29,7 +29,21 @@ Prefer small “slices” that can ship independently.
 - Decide error handling and retry semantics.
 - Define observability: what to log, measure, and alert on.
 
-Deliverable: `templates/DESIGN.md` (or ADR if it’s a durable decision).
+### Spec-first (must for design-required changes)
+
+A change is **design-required** if it adds or changes a public interface, changes data or
+schemas, or changes behavior across more than one module.
+
+- For design-required changes, copy `templates/DESIGN.md` to `docs/design/<slug>.md`,
+  fill in the acceptance criteria and task breakdown, and get human approval **before**
+  implementation starts. Record the approval in the doc's `Status` and `Approved by`
+  lines. This applies to agents and humans alike. An agent working without a human in
+  the loop stops and asks for approval.
+- Other changes (a typo, a one-function fix, a config tweak) skip the design doc and need
+  only a short summary in the PR. TDD and every other standard still apply.
+
+Deliverable (design-required changes): a design doc from `templates/DESIGN.md` (or an ADR
+if it's a durable decision).
 
 ## 3) Implement safely (TDD)
 

@@ -134,6 +134,9 @@ alongside the normal SBOM (`standards/SUPPLY_CHAIN.md`):
   IV technical documentation for high-risk systems). Treat it as compliance, not optional
   hygiene, where that exposure exists.
 
+Record each AI feature's EU AI Act risk tier in the AI-BOM. See
+`standards/AI_GOVERNANCE.md` for risk classification and regulatory dates.
+
 ## Working with coding agents on our repos (must)
 
 - Agent-authored PRs meet the **same standards as human-authored code** (see

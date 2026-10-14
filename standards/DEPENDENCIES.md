@@ -24,6 +24,9 @@ choosing and maintaining dependencies.
 - Confirm license compatibility.
 - Minimize scope (import only what you need); watch transitive dependency weight.
 - Respect an **adoption cooldown**: avoid versions published in the last few days.
+- If an AI tool suggested the package, verify that it exists on the official registry and
+  check its publisher, first-publish date, and download history before use (AI-suggested
+  packages, `standards/SUPPLY_CHAIN.md`).
 
 ## Versioning and upgrades
 

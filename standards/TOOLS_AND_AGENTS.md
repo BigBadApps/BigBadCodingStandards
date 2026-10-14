@@ -39,6 +39,15 @@ deliberately.
 - **Keep `AGENTS.md` lean**: it is loaded every run. High-signal constraints only; link out
   to `standards/` for detail rather than inlining it.
 - Avoid restating the same large context every turn — reference it instead.
+- **Tool-specific files are shims**: `CLAUDE.md`, `GEMINI.md`, and
+  `.github/copilot-instructions.md` only point to `AGENTS.md`. Copy them from
+  `templates/tool-shims/` and drop the `.shim` from the filename. Never duplicate rules
+  into them.
+- **Nested `AGENTS.md` in monorepos**: subdirectories may have their own `AGENTS.md`.
+  Rules layer from the repo root down to the nearest file, and on conflict the nearest
+  file wins. A subdirectory file holds only the differences for that directory. Tools
+  that do not read `AGENTS.md` natively (Claude Code, Gemini CLI) need a sibling shim
+  next to each nested `AGENTS.md`.
 
 ## Deterministic enforcement (must)
 
@@ -81,6 +90,23 @@ on demand. They keep `AGENTS.md` lean.
 - Restrict tools with `allowed-tools` where the agent supports it.
 - Third-party skills are dependencies: read the full content before adoption, pin a
   version or commit, and re-review on every update (`standards/AI_AGENT_SECURITY.md`).
+- Skill files can carry hallucinated package installs or repository URLs. Review them like
+  any other dependency (AI-suggested packages, `standards/SUPPLY_CHAIN.md`).
+
+## Parallel agents (should)
+
+When several agents work at once:
+
+- One branch or git worktree per agent. Agents never share a working tree.
+- Assign disjoint files or modules per agent. If two tasks touch the same file, run them
+  in sequence.
+- No shared mutable state between agents: no shared scratch files, databases, or ports
+  without isolation.
+- A lead agent may combine its subagents' branches into one feature branch. Merges into
+  the default or a protected branch go through PR review, and a human or a gated
+  pipeline performs them; agents never merge there.
+- Each agent runs the full verification (tests, lint, typecheck) on its own branch before
+  handing off.
 
 ## Source-of-truth hierarchy
 
