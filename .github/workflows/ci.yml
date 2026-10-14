@@ -28,3 +28,6 @@ jobs:
 
       - name: Lint shell scripts
         run: shellcheck --severity=warning tools/*.sh
+
+      - name: Self-test tools
+        run: bash tools/test-bootstrap.sh

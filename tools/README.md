@@ -4,11 +4,16 @@ These scripts help you roll out shared standards to many projects.
 
 ## `bootstrap-product-repo.sh`
 
-Creates:
+Copies starter files from `templates/` into a product repo. It never overwrites an
+existing file:
 
 - `docs/coding-standards/` (empty placeholder; you populate via submodule or copy)
-- `AGENTS.md` in the product repo (if missing)
-- `.cursor/rules/coding-standards.mdc` that always applies
+- `AGENTS.md` (from `templates/PROJECT_AGENTS.md`)
+- `.cursor/rules/coding-standards.mdc` (a pointer to `AGENTS.md`)
+- `CLAUDE.md`, `GEMINI.md`, and `.github/copilot-instructions.md` (shims from
+  `templates/tool-shims/`)
+
+Self-test: `bash tools/test-bootstrap.sh`.
 
 Usage:
 

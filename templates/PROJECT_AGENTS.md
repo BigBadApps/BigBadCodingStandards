@@ -1,4 +1,5 @@
-# Project Agent Instructions (copy to product repo `AGENTS.md`)
+<!-- Template: tools/bootstrap-product-repo.sh copies this to the product repo as AGENTS.md. -->
+# Project Agent Instructions
 
 This repository uses shared coding standards. This file follows the AGENTS.md open standard
 and is the primary entrypoint for coding agents in this repo.

@@ -6,10 +6,8 @@ set -euo pipefail
 # Usage:
 #   tools/bootstrap-product-repo.sh /absolute/path/to/product-repo
 #
-# This script:
-# - creates docs/coding-standards/ (you provide contents via submodule or copy)
-# - creates a project-local AGENTS.md (if missing) pointing to the standards
-# - installs a Cursor rule that always applies (if .cursor/ exists or is created)
+# Copies starter files from this repo's templates/ into the product repo.
+# Existing files are never overwritten.
 
 if [[ $# -ne 1 ]]; then
   echo "Usage: $0 /absolute/path/to/product-repo" >&2
@@ -22,39 +20,24 @@ if [[ ! -d "$repo" ]]; then
   exit 1
 fi
 
+templates="$(cd "$(dirname "$0")/.." && pwd)/templates"
+
+install_file() { # install_file <template path> <destination relative to repo>
+  local src="$templates/$1" dest="$repo/$2"
+  if [[ -e "$dest" ]]; then
+    echo "- skipped $2 (already exists)"
+    return
+  fi
+  mkdir -p "$(dirname "$dest")"
+  cp "$src" "$dest"
+  echo "- created $2"
+}
+
+echo "Bootstrapping $repo:"
 mkdir -p "$repo/docs/coding-standards"
-
-if [[ ! -f "$repo/AGENTS.md" ]]; then
-  cat > "$repo/AGENTS.md" <<'EOF'
-# Agent Instructions
-
-This repo uses shared coding standards.
-
-## Required: read standards first
-
-- `docs/coding-standards/AGENTS.md`
-- `docs/coding-standards/standards/INDEX.md`
-EOF
-fi
-
-mkdir -p "$repo/.cursor/rules"
-cat > "$repo/.cursor/rules/coding-standards.mdc" <<'EOF'
----
-description: Always follow shared coding standards in docs/coding-standards
-alwaysApply: true
----
-
-# Shared Coding Standards
-
-## Mandatory
-
-- Read `docs/coding-standards/AGENTS.md` first.
-- Use `docs/coding-standards/standards/INDEX.md` to navigate standards quickly.
-- Follow `docs/coding-standards/standards/PLAYBOOK.md`.
-EOF
-
-echo "Bootstrapped:"
-echo "- $repo/docs/coding-standards/  (populate via submodule or copy)"
-echo "- $repo/AGENTS.md"
-echo "- $repo/.cursor/rules/coding-standards.mdc"
-
+install_file PROJECT_AGENTS.md AGENTS.md
+install_file cursor-rules/coding-standards.mdc .cursor/rules/coding-standards.mdc
+install_file tool-shims/CLAUDE.shim.md CLAUDE.md
+install_file tool-shims/GEMINI.shim.md GEMINI.md
+install_file tool-shims/copilot-instructions.md .github/copilot-instructions.md
+echo "- docs/coding-standards/ (populate via submodule or copy)"
